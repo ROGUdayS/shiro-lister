@@ -1,0 +1,18 @@
+Please add real images here
+
+Required images:
+1. hero-image.jpg - A high-quality image of a modern real estate development for the hero section
+2. project1.jpg, project2.jpg, project3.jpg - Images of real estate projects
+3. clubhouse1.jpg, clubhouse2.jpg, clubhouse3.jpg - Images of clubhouse facilities
+4. gallery1.jpg through gallery6.jpg - Various property images for the gallery
+5. mission.jpg - Image representing the company's mission
+6. vision.jpg - Image representing the company's vision
+7. bank1.png through bank5.png - Bank logos for the bank approval section
+8. avatar1.jpg through avatar5.jpg - Small profile images for the deals section
+
+You can use placeholder images from services like:
+- https://placeholder.com/
+- https://picsum.photos/
+- https://placehold.co/
+
+Or use real images that match your real estate brand.

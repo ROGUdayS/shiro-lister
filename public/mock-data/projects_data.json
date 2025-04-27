@@ -1,0 +1,699 @@
+[
+  {
+    "project_id": 1,
+    "project_name": "Shanthiniketan - Kadugondanahalli",
+    "project_location": "North Bangalore",
+    "project_description": "We believe everyone deserves a home - that makes them feel secure, connected—a place to call their own. A home that uplifts their confidence, allowing them to do more. A home that goes beyond their needs and enhances their lifestyle.",
+    "project_extended_description": "By redefining the norms of the real estate market, we build homes that are both affordable and accessible, located in the heart of the city, making us our customer's choice. Where every detail is crafted carefully with your well-being in mind. Experience the luxury of two balconies, ample ventilation, standard amenities, spacious homes with rapidly growing infrastructure.",
+    "property_price": "₹ 60 Lac",
+    "property_sample_price": "₹ 699.00",
+    "property_full_address": "41, Opposite to Venkatapura Metro Station, Nagawara Main Road, B M Layout, Vinobha Nagar, Kadugondanahalli, Bengaluru, Karnataka 560045",
+    "property_details": [
+      {
+        "details_icon_name": "project_type",
+        "details_icon_path": "/images/application-icons/property-details/project_type.svg",
+        "detail_name": "Apartment",
+        "detail_value": "Residential"
+      },
+      {
+        "details_icon_name": "bedrooms",
+        "details_icon_path": "/images/application-icons/property-details/bedrooms.svg",
+        "detail_name": "Bedrooms",
+        "detail_value": "2-3 BHK"
+      },
+      {
+        "details_icon_name": "development_site",
+        "details_icon_path": "/images/application-icons/property-details/development_site.svg",
+        "detail_name": "Development Site",
+        "detail_value": "2.5 Acres"
+      },
+      {
+        "details_icon_name": "total_unit",
+        "details_icon_path": "/images/application-icons/property-details/totol_unit.svg",
+        "detail_name": "Total Units",
+        "detail_value": "120"
+      }
+    ],
+    "property_certificates": [
+      "RERA Approved",
+      "BBMP Approved",
+      "BWSSB Approved",
+      "BESCOM Approved",
+      "RERA Approved"
+    ],
+    "property_amenities": [
+      {
+        "exists": true,
+        "icon_name": "kids_and_toddler_area",
+        "icon_path": "/images/application-icons/projects-amenities/kids_and toddler_area.svg",
+        "name": "Kids & Toddler Play Area"
+      },
+      {
+        "exists": true,
+        "icon_name": "multi_purpose_hall",
+        "icon_path": "/images/application-icons/projects-amenities/multi_purpose_hall.svg",
+        "name": "Multi-Purpose Hall"
+      },
+      {
+        "exists": true,
+        "icon_name": "common_sitting_area",
+        "icon_path": "/images/application-icons/projects-amenities/common_sitting_area.svg",
+        "name": "Common Sitting Area"
+      },
+      {
+        "exists": true,
+        "icon_name": "fully_equipped_gym",
+        "icon_path": "/images/application-icons/projects-amenities/fully_equipped_gym.svg",
+        "name": "Fully Equipped Gym"
+      },
+      {
+        "exists": true,
+        "icon_name": "jogging_track",
+        "icon_path": "/images/application-icons/projects-amenities/jogging_track.svg",
+        "name": "Jogging Track"
+      },
+      {
+        "exists": true,
+        "icon_name": "landscaped_terrace_garden",
+        "icon_path": "/images/application-icons/projects-amenities/landscaped_terrace_garden.svg",
+        "name": "Landscaped Terrace Garden"
+      },
+      {
+        "exists": true,
+        "icon_name": "green_gazebo",
+        "icon_path": "/images/application-icons/projects-amenities/green_gazebo.svg",
+        "name": "Green Gazebo"
+      },
+      {
+        "exists": true,
+        "icon_name": "barbecque_area",
+        "icon_path": "/images/application-icons/projects-amenities/barbecque_area.svg",
+        "name": "Barbecque"
+      },
+      {
+        "exists": true,
+        "icon_name": "community_centres",
+        "icon_path": "/images/application-icons/projects-amenities/community_centres.svg",
+        "name": "Community Centers"
+      },
+      {
+        "exists": true,
+        "icon_name": "yoga_area",
+        "icon_path": "/images/application-icons/projects-amenities/yoga_area.svg",
+        "name": "Yoga area"
+      },
+      {
+        "exists": true,
+        "icon_name": "safety_and_convenience",
+        "icon_path": "/images/application-icons/projects-amenities/safety_and_convenience.svg",
+        "name": "Safety and Convenience"
+      },
+      {
+        "exists": true,
+        "icon_name": "security",
+        "icon_path": "/images/application-icons/projects-amenities/security.svg",
+        "name": "24/7 Security"
+      },
+      {
+        "exists": true,
+        "icon_name": "charging_station",
+        "icon_path": "/images/application-icons/projects-amenities/charging_station.svg",
+        "name": "E-charging Station"
+      },
+      {
+        "exists": true,
+        "icon_name": "avenue_tree_plantation",
+        "icon_path": "/images/application-icons/projects-amenities/avenue_tree_plantation.svg",
+        "name": "Avenue Tree Plantation"
+      },
+      {
+        "exists": true,
+        "icon_name": "arch_designed_entry",
+        "icon_path": "/images/application-icons/projects-amenities/arch_designed_entry.svg",
+        "name": "Arch Designed Entry"
+      },
+      {
+        "exists": true,
+        "icon_name": "cctv",
+        "icon_path": "/images/application-icons/projects-amenities/CCTV.svg",
+        "name": "CCTV"
+      },
+      {
+        "exists": true,
+        "icon_name": "common_sitting_area",
+        "icon_path": "/images/application-icons/projects-amenities/common_sitting_area.svg",
+        "name": "Common Sitting Area"
+      },
+      {
+        "exists": true,
+        "icon_name": "high_raised_walls",
+        "icon_path": "/images/application-icons/projects-amenities/high_raised_walls.svg",
+        "name": "High-raised Boundary Walls"
+      },
+      {
+        "exists": true,
+        "icon_name": "elevators",
+        "icon_path": "/images/application-icons/projects-amenities/elevators.svg",
+        "name": "Elevators"
+      },
+      {
+        "exists": true,
+        "icon_name": "diesel_generator",
+        "icon_path": "/images/application-icons/projects-amenities/diesel_generator.svg",
+        "name": "Diesel Generator"
+      }
+    ],
+    "property_floor_plans": [
+      {
+        "floor_level": "2 BHK Premium",
+        "total_area": "1050 sq ft",
+        "rooms": {
+          "Room": 2,
+          "Bed": 2,
+          "Bath": 2
+        },
+        "floor_plan_path": "/images/project-imgages/shantinikethan-images/floor-plans/floor_plan.jpg"
+      },
+      {
+        "floor_level": "2 BHK Compact",
+        "total_area": "850 sq ft",
+        "rooms": {
+          "Room": 2,
+          "Bed": 2,
+          "Bath": 1
+        },
+        "floor_plan_path": "/images/project-imgages/shantinikethan-images/floor-plans/floor_plan.jpg"
+      },
+      {
+        "floor_level": "3 BHK Premium",
+        "total_area": "1450 sq ft",
+        "rooms": {
+          "Room": 3,
+          "Bed": 3,
+          "Bath": 3
+        },
+        "floor_plan_path": "/images/project-imgages/shantinikethan-images/floor-plans/floor_plan.jpg"
+      }
+    ],
+    "property_specifications": [
+      {
+        "specification_title": "Structure",
+        "specification_details": "RCC framed structure with concrete block masonry walls"
+      },
+      {
+        "specification_title": "Flooring",
+        "specification_details": "Vitrified tiles in living, dining, and bedrooms"
+      },
+      {
+        "specification_title": "Kitchen",
+        "specification_details": "Granite countertop with stainless steel sink and ceramic tile"
+      },
+      {
+        "specification_title": "Bathrooms",
+        "specification_details": "Anti-skid ceramic floor tiles, wall tiles up to 7 feet height"
+      },
+      {
+        "specification_title": "Doors & Windows",
+        "specification_details": "Main door: Teak wood frame with designer shutter, Windows: UPVC frames with glass shutters"
+      },
+      {
+        "specification_title": "Electrical",
+        "specification_details": "Concealed copper wiring with modular switches"
+      },
+      {
+        "specification_title": "Plumbing",
+        "specification_details": "CPVC and PVC piping for water supply"
+      },
+      {
+        "specification_title": "Paint",
+        "specification_details": "Interior: Premium emulsion paint, Exterior: Weather-proof paint"
+      }
+    ],
+    "property_neighborhood": {
+      "Education": [
+        "Delhi Public School - 2 km",
+        "Ryan International School - 3.5 km",
+        "CMR University - 5 km"
+      ],
+      "Healthcare": [
+        "Columbia Asia Hospital - 4 km",
+        "Baptist Hospital - 5.5 km",
+        "Aster CMI Hospital - 7 km"
+      ],
+      "Shopping & Entertainment": [
+        "Elements Mall - 2.5 km",
+        "Orion East Mall - 6 km",
+        "PVR Cinemas - 6 km"
+      ],
+      "Transportation": [
+        "Hebbal Metro Station - 3 km",
+        "Manyata Tech Park - 5 km",
+        "Kempegowda International Airport - 25 km"
+      ]
+    },
+    "property_location": {
+      "latitude": 12.971599,
+      "longitude": 77.5979129
+    },
+    "property_gallery_images": [
+      "/images/project-imgages/shantinikethan-images/project-gallery-images/gallery-1.webp",
+      "/images/project-imgages/shantinikethan-images/project-gallery-images/gallery-2.webp",
+      "/images/project-imgages/shantinikethan-images/project-gallery-images/gallery-3.webp",
+      "/images/project-imgages/shantinikethan-images/project-gallery-images/gallery-1.webp",
+      "/images/project-imgages/shantinikethan-images/project-gallery-images/gallery-1.webp",
+      "/images/project-imgages/shantinikethan-images/project-gallery-images/gallery-1.webp",
+      "/images/project-imgages/shantinikethan-images/project-gallery-images/gallery-1.webp",
+      "/images/project-imgages/shantinikethan-images/project-gallery-images/gallery-1.webp",
+      "/images/project-imgages/shantinikethan-images/project-gallery-images/gallery-1.webp"
+    ],
+    "property_cover_image": "/images/landing-page-images/cover-image.webp",
+    "property_video_link": "/images/project-imgages/shantinikethan-images/video_trial/video_demo.mp4",
+    "property_card_amenities": [
+      {
+        "icon_path": "/images/property-card-images/PLAYGROUND.svg",
+        "name": "Kids & Toddler"
+      },
+      {
+        "icon_path": "/images/property-card-images/HALL.svg",
+        "name": "Multi-Purpose"
+      },
+      {
+        "icon_path": "/images/property-card-images/GYM.svg",
+        "name": "Equipped Gym"
+      },
+      {
+        "icon_path": "/images/property-card-images/CCTV.svg",
+        "name": "CCTV"
+      }
+    ],
+    "property_faq": [
+      {
+        "question": "Is there a provision for future expansion or modification of units?",
+        "answer": "Yes, units can be customized according to your requirements, with additional charges applicable"
+      },
+      {
+        "question": "What are the specific dimensions and layout options for the 2 BHK units?",
+        "answer": "Our 2 BHK units offer various layouts ranging from 800-1100 sq ft, with spacious living areas and multiple balconies"
+      },
+      {
+        "question": "What is the policy for pet ownership within the community?",
+        "answer": "Pets are welcome in our community, with guidelines for common areas to ensure a comfortable environment for all residents"
+      },
+      {
+        "question": "How does the project ensure energy efficiency and sustainability?",
+        "answer": "We incorporate solar power for common areas, rainwater harvesting systems, and energy-efficient fixtures throughout the project"
+      },
+      {
+        "question": "Are there any community events or activities organized for residents?",
+        "answer": "Regular community events, festivals, and activities are organized to foster a vibrant community atmosphere"
+      },
+      {
+        "question": "What kind of warranty or post-possession support is provided for the units?",
+        "answer": "We offer a 1-year comprehensive warranty on structural aspects and 6 months on fixtures, with dedicated post-possession support"
+      },
+      {
+        "question": "Are there any maintenance charges for the amenities and common areas?",
+        "answer": "A nominal maintenance fee is collected quarterly to ensure upkeep of all common areas and amenities"
+      }
+    ]
+  },
+  {
+    "project_id": 2,
+    "project_name": "Lakeside View",
+    "project_location": "East Bangalore",
+    "project_description": "Nestled amidst serene surroundings, Lakeside View offers a perfect blend of modern living and natural beauty. With stunning vistas of the nearby lake, these homes are designed for those who appreciate tranquility without compromising on urban conveniences.",
+    "project_extended_description": "Each apartment at Lakeside View is thoughtfully designed to maximize natural light and ventilation while providing panoramic views of the pristine lake. The project incorporates sustainable design practices with rainwater harvesting, solar power, and waste management systems, making it an eco-conscious choice for environmentally aware homebuyers.",
+    "property_price": "₹ 75 Lac",
+    "property_sample_price": "₹ 750.00",
+    "property_full_address": "23, Lake Road, , Nagawara Main Road, B M Layout, Vinobha Nagar, Kadugondanahalli, Bengaluru, Karnataka 560045",
+    "property_details": [
+      {
+        "details_icon_name": "project_type",
+        "details_icon_path": "/images/application-icons/property-details/project_type.svg",
+        "detail_name": "Apartment",
+        "detail_value": "Residential"
+      },
+      {
+        "details_icon_name": "bedrooms",
+        "details_icon_path": "/images/application-icons/property-details/bedrooms.svg",
+        "detail_name": "Bedrooms",
+        "detail_value": "2-3 BHK"
+      },
+      {
+        "details_icon_name": "development_site",
+        "details_icon_path": "/images/application-icons/property-details/development_site.svg",
+        "detail_name": "Development Site",
+        "detail_value": "3.2 Acres"
+      },
+      {
+        "details_icon_name": "total_unit",
+        "details_icon_path": "/images/application-icons/property-details/totol_unit.svg",
+        "detail_name": "Total Units",
+        "detail_value": "180"
+      }
+    ],
+    "property_certificates": [
+      "RERA Approved",
+      "BBMP Approved",
+      "BWSSB Approved",
+      "BESCOM Approved",
+      "Fire Department Approved"
+    ],
+    "property_amenities": [
+      {
+        "exists": true,
+        "icon_name": "kids_and_toddler_area",
+        "icon_path": "/images/application-icons/projects-amenities/kids_and toddler_area.svg",
+        "name": "Kids & Toddler Play Area"
+      },
+      {
+        "exists": true,
+        "icon_name": "multi_purpose_hall",
+        "icon_path": "/images/application-icons/projects-amenities/multi_purpose_hall.svg",
+        "name": "Multi-Purpose Hall"
+      },
+      {
+        "exists": true,
+        "icon_name": "fully_equipped_gym",
+        "icon_path": "/images/application-icons/projects-amenities/fully_equipped_gym.svg",
+        "name": "Fully Equipped Gym"
+      },
+      {
+        "exists": true,
+        "icon_name": "jogging_track",
+        "icon_path": "/images/application-icons/projects-amenities/jogging_track.svg",
+        "name": "Jogging Track"
+      },
+      {
+        "exists": true,
+        "icon_name": "landscaped_terrace_garden",
+        "icon_path": "/images/application-icons/projects-amenities/landscaped_terrace_garden.svg",
+        "name": "Landscaped Terrace Garden"
+      },
+      {
+        "exists": true,
+        "icon_name": "cctv",
+        "icon_path": "/images/application-icons/projects-amenities/CCTV.svg",
+        "name": "CCTV"
+      },
+      {
+        "exists": true,
+        "icon_name": "elevators",
+        "icon_path": "/images/application-icons/projects-amenities/elevators.svg",
+        "name": "Elevators"
+      },
+      {
+        "exists": true,
+        "icon_name": "diesel_generator",
+        "icon_path": "/images/application-icons/projects-amenities/diesel_generator.svg",
+        "name": "Diesel Generator"
+      }
+    ],
+    "property_floor_plans": [
+      {
+        "floor_level": "2 BHK Lake View",
+        "total_area": "1150 sq ft",
+        "rooms": {
+          "Room": 2,
+          "Bed": 2,
+          "Bath": 2
+        },
+        "floor_plan_path": "/images/project-imgages/shantinikethan-images/floor-plans/floor_plan.jpg"
+      },
+      {
+        "floor_level": "3 BHK Premium",
+        "total_area": "1650 sq ft",
+        "rooms": {
+          "Room": 3,
+          "Bed": 3,
+          "Bath": 3
+        },
+        "floor_plan_path": "/images/project-imgages/shantinikethan-images/floor-plans/floor_plan.jpg"
+      }
+    ],
+    "property_specifications": [
+      {
+        "specification_title": "Structure",
+        "specification_details": "RCC framed structure with concrete block masonry walls"
+      },
+      {
+        "specification_title": "Flooring",
+        "specification_details": "Imported marble in living and dining, wooden flooring in master bedroom"
+      },
+      {
+        "specification_title": "Kitchen",
+        "specification_details": "Premium granite countertop with modular kitchen and chimney"
+      },
+      {
+        "specification_title": "Bathrooms",
+        "specification_details": "Designer tiles, premium sanitary fixtures, and glass shower enclosures"
+      }
+    ],
+    "property_neighborhood": {
+      "Education": [
+        "Whitefield Global School - 2 km",
+        "Greenwood High International School - 3 km",
+        "IIMB - 8 km"
+      ],
+      "Healthcare": [
+        "Manipal Hospital - 3 km",
+        "Columbia Asia Hospital - 5 km"
+      ],
+      "Shopping & Entertainment": [
+        "Phoenix Marketcity - 4 km",
+        "VR Bengaluru - 5 km",
+        "INOX Cinemas - 4.5 km"
+      ]
+    },
+    "property_location": {
+      "latitude": 12.9698,
+      "longitude": 77.7499
+    },
+    "property_gallery_images": [
+      "/images/project-imgages/shantinikethan-images/project-gallery-images/gallery-3.webp",
+      "/images/project-imgages/shantinikethan-images/project-gallery-images/gallery-3.webp",
+      "/images/project-imgages/shantinikethan-images/project-gallery-images/gallery-3.webp",
+      "/images/project-imgages/shantinikethan-images/project-gallery-images/gallery-3.webp",
+      "/images/project-imgages/shantinikethan-images/project-gallery-images/gallery-3.webp",
+      "/images/project-imgages/shantinikethan-images/project-gallery-images/gallery-3.webp"
+    ],
+    "property_cover_image": "/images/cards-images/house1.webp",
+    "property_video_link": "/images/project-imgages/shantinikethan-images/video_trial/video_demo.mp4",
+    "property_card_amenities": [
+      {
+        "icon_path": "/images/property-card-images/PLAYGROUND.svg",
+        "name": "Kids & Toddler"
+      },
+      {
+        "icon_path": "/images/property-card-images/HALL.svg",
+        "name": "Multi-Purpose"
+      },
+      {
+        "icon_path": "/images/property-card-images/GYM.svg",
+        "name": "Equipped Gym"
+      },
+      {
+        "icon_path": "/images/property-card-images/CCTV.svg",
+        "name": "CCTV"
+      }
+    ],
+    "property_faq": [
+      {
+        "question": "What are the parking facilities available?",
+        "answer": "Each unit comes with one dedicated covered parking spot, with options to purchase additional parking spaces"
+      },
+      {
+        "question": "Is there a clubhouse facility?",
+        "answer": "Yes, our project features a state-of-the-art clubhouse with indoor games, party hall, and fitness center"
+      },
+      {
+        "question": "What security arrangements are in place?",
+        "answer": "We provide 24/7 security, CCTV surveillance, intercom facility, and access control systems for residents' safety"
+      }
+    ]
+  },
+  {
+    "project_id": 3,
+    "project_name": "Urban Heights",
+    "project_location": "Central Bangalore",
+    "project_description": "Urban Heights brings luxury living to the heart of the city. These premium apartments offer the perfect combination of sophistication, convenience, and modern amenities for the discerning urban dweller.",
+    "project_extended_description": "Strategically located in the city center, Urban Heights provides unparalleled access to business districts, shopping centers, and entertainment venues. The project's architecture blends contemporary design with functional spaces, creating homes that are both elegant and practical for modern lifestyles.",
+    "property_price": "₹ 95 Lac",
+    "property_sample_price": "₹ 950.00",
+    "property_full_address": "12, MG Road, Central Business District, Bengaluru, Karnataka 560001",
+    "property_details": [
+      {
+        "details_icon_name": "project_type",
+        "details_icon_path": "/images/application-icons/property-details/project_type.svg",
+        "detail_name": "Apartment",
+        "detail_value": "Residential"
+      },
+      {
+        "details_icon_name": "bedrooms",
+        "details_icon_path": "/images/application-icons/property-details/bedrooms.svg",
+        "detail_name": "Bedrooms",
+        "detail_value": "3-4 BHK"
+      },
+      {
+        "details_icon_name": "development_site",
+        "details_icon_path": "/images/application-icons/property-details/development_site.svg",
+        "detail_name": "Development Site",
+        "detail_value": "1.8 Acres"
+      },
+      {
+        "details_icon_name": "total_unit",
+        "details_icon_path": "/images/application-icons/property-details/totol_unit.svg",
+        "detail_name": "Total Units",
+        "detail_value": "90"
+      }
+    ],
+    "property_certificates": [
+      "RERA Approved",
+      "BBMP Approved",
+      "BWSSB Approved",
+      "BESCOM Approved",
+      "Fire Department Approved"
+    ],
+    "property_amenities": [
+      {
+        "exists": true,
+        "icon_name": "fully_equipped_gym",
+        "icon_path": "/images/application-icons/projects-amenities/fully_equipped_gym.svg",
+        "name": "Fully Equipped Gym"
+      },
+      {
+        "exists": true,
+        "icon_name": "spa",
+        "icon_path": "/images/application-icons/projects-amenities/spa.svg",
+        "name": "Spa & Sauna"
+      },
+      {
+        "exists": true,
+        "icon_name": "rooftop_lounge",
+        "icon_path": "/images/application-icons/projects-amenities/rooftop_lounge.svg",
+        "name": "Rooftop Lounge"
+      },
+      {
+        "exists": true,
+        "icon_name": "cctv",
+        "icon_path": "/images/application-icons/projects-amenities/CCTV.svg",
+        "name": "CCTV"
+      },
+      {
+        "exists": true,
+        "icon_name": "elevators",
+        "icon_path": "/images/application-icons/projects-amenities/elevators.svg",
+        "name": "Smart Elevators"
+      },
+      {
+        "exists": true,
+        "icon_name": "charging_station",
+        "icon_path": "/images/application-icons/projects-amenities/charging_station.svg",
+        "name": "E-charging Station"
+      }
+    ],
+    "property_floor_plans": [
+      {
+        "floor_level": "3 BHK Luxury",
+        "total_area": "1850 sq ft",
+        "rooms": {
+          "Room": 3,
+          "Bed": 3,
+          "Bath": 3
+        },
+        "floor_plan_path": "/images/project-imgages/shantinikethan-images/floor-plans/floor_plan.jpg"
+      },
+      {
+        "floor_level": "4 BHK Penthouse",
+        "total_area": "2450 sq ft",
+        "rooms": {
+          "Room": 4,
+          "Bed": 4,
+          "Bath": 4
+        },
+        "floor_plan_path": "/images/project-imgages/shantinikethan-images/floor-plans/floor_plan.jpg"
+      }
+    ],
+    "property_specifications": [
+      {
+        "specification_title": "Structure",
+        "specification_details": "RCC framed structure with earthquake-resistant design"
+      },
+      {
+        "specification_title": "Flooring",
+        "specification_details": "Italian marble in living and dining, engineered wooden flooring in bedrooms"
+      },
+      {
+        "specification_title": "Kitchen",
+        "specification_details": "Fully modular kitchen with imported fittings and high-end appliances"
+      },
+      {
+        "specification_title": "Smart Home",
+        "specification_details": "Voice-controlled lighting, temperature, and security systems"
+      }
+    ],
+    "property_neighborhood": {
+      "Business": [
+        "UB City - 1 km",
+        "World Trade Center - 3 km",
+        "Brigade Road Business District - 1.5 km"
+      ],
+      "Entertainment": [
+        "Cubbon Park - 2 km",
+        "MG Road - 0.5 km",
+        "Garuda Mall - 1 km"
+      ],
+      "Transportation": [
+        "MG Road Metro Station - 0.3 km",
+        "Kempegowda Bus Station - 5 km",
+        "Bengaluru City Railway Station - 4 km"
+      ]
+    },
+    "property_location": {
+      "latitude": 12.9716,
+      "longitude": 77.5946
+    },
+    "property_gallery_images": [
+      "/images/project-imgages/shantinikethan-images/project-gallery-images/gallery-2.webp",
+      "/images/project-imgages/shantinikethan-images/project-gallery-images/gallery-2.webp",
+      "/images/project-imgages/shantinikethan-images/project-gallery-images/gallery-2.webp",
+      "/images/project-imgages/shantinikethan-images/project-gallery-images/gallery-2.webp",
+      "/images/project-imgages/shantinikethan-images/project-gallery-images/gallery-2.webp",
+      "/images/project-imgages/shantinikethan-images/project-gallery-images/gallery-2.webp"
+    ],
+    "property_cover_image": "/images/cards-images/house1.webp",
+    "property_video_link": "/images/project-imgages/shantinikethan-images/video_trial/video_demo.mp4",
+    "property_card_amenities": [
+      {
+        "icon_path": "/images/property-card-images/PLAYGROUND.svg",
+        "name": "Kids & Toddler"
+      },
+      {
+        "icon_path": "/images/property-card-images/HALL.svg",
+        "name": "Multi-Purpose"
+      },
+      {
+        "icon_path": "/images/property-card-images/GYM.svg",
+        "name": "Equipped Gym"
+      },
+      {
+        "icon_path": "/images/property-card-images/CCTV.svg",
+        "name": "CCTV"
+      }
+    ],
+    "property_faq": [
+      {
+        "question": "Is there a concierge service available?",
+        "answer": "Yes, our property offers 24/7 concierge services to assist with various requirements including housekeeping, maintenance, and guest services"
+      },
+      {
+        "question": "What is the timeline for project completion?",
+        "answer": "The project is scheduled for completion by December 2023, with phased handover of units starting from October 2023"
+      },
+      {
+        "question": "Are there any special facilities for work-from-home professionals?",
+        "answer": "Yes, we provide dedicated co-working spaces with high-speed internet, meeting rooms, and private cabins for residents who work remotely"
+      }
+    ]
+  }
+]

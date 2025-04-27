@@ -2,88 +2,161 @@
 
 import Image from "next/image";
 import TabSection from "@/app/components/TabSection";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useParams } from "next/navigation";
+
+interface ProjectData {
+  project_id: number;
+  project_name: string;
+  project_location: string;
+  project_description: string;
+  project_extended_description: string;
+  property_price: string;
+  property_sample_price: string;
+  property_full_address: string;
+  property_details: {
+    details_icon_name: string;
+    details_icon_path: string;
+    detail_name: string;
+    detail_value: string;
+  }[];
+  property_certificates: string[];
+  property_amenities: {
+    exists: boolean;
+    icon_name: string;
+    icon_path: string;
+    name: string;
+  }[];
+  property_floor_plans: {
+    floor_level: string;
+    total_area: string;
+    rooms: {
+      Room: number;
+      Bed: number;
+      Bath: number;
+    };
+    floor_plan_path: string;
+  }[];
+  property_specifications: {
+    specification_title: string;
+    specification_details: string;
+  }[];
+  property_neighborhood: {
+    [key: string]: string[];
+  };
+  property_location: {
+    latitude: number;
+    longitude: number;
+  };
+  property_gallery_images: string[];
+  property_cover_image: string;
+  property_video_link: string;
+  property_faq: {
+    question: string;
+    answer: string;
+  }[];
+}
 
 export default function ProjectDetails() {
-  // Amenities data
-  const amenitiesData = [
-    { icon: "kids_and toddler_area.svg", name: "Kids & Toddler Play Area" },
-    { icon: "multi_purpose_hall.svg", name: "Multi-Purpose Hall" },
-    { icon: "common_sitting_area.svg", name: "Common Sitting Area" },
-    { icon: "fully_equipped_gym.svg", name: "Fully Equipped Gym" },
-    { icon: "jogging_track.svg", name: "Jogging Track" },
-    {
-      icon: "landscaped_terrace_garden.svg",
-      name: "Landscaped Terrace Garden",
-    },
-    { icon: "green_gazebo.svg", name: "Green Gazebo" },
-    { icon: "barbecque_area.svg", name: "Barbecque" },
-    { icon: "community_centres.svg", name: "Community Centers" },
-    { icon: "yoga_area.svg", name: "Yoga area" },
-    { icon: "safety_and_convenience.svg", name: "Safety and Convenience" },
-    { icon: "security.svg", name: "24/7 Security" },
-    { icon: "charging_station.svg", name: "E-charging Station" },
-    { icon: "avenue_tree_plantation.svg", name: "Avenue Tree Plantation" },
-    { icon: "arch_designed_entry.svg", name: "Arch Designed Entry" },
-    { icon: "CCTV.svg", name: "CCTV" },
-    { icon: "common_sitting_area.svg", name: "Common Sitting Area" },
-    { icon: "high_raised_walls.svg", name: "High-raised Boundary Walls" },
-    { icon: "elevators.svg", name: "Elevators" },
-    { icon: "diesel_generator.svg", name: "Diesel Generator" },
-  ];
-
-  // FAQ data
-  const faqData = [
-    {
-      question:
-        "Is there a provision for future expansion or modification of units?",
-      answer:
-        "Yes, units can be customized according to your requirements, with additional charges applicable",
-    },
-    {
-      question:
-        "What are the specific dimensions and layout options for the 2 BHK units?",
-      answer:
-        "Our 2 BHK units offer various layouts ranging from 800-1100 sq ft, with spacious living areas and multiple balconies",
-    },
-    {
-      question: "What is the policy for pet ownership within the community?",
-      answer:
-        "Pets are welcome in our community, with guidelines for common areas to ensure a comfortable environment for all residents",
-    },
-    {
-      question:
-        "How does the project ensure energy efficiency and sustainability?",
-      answer:
-        "We incorporate solar power for common areas, rainwater harvesting systems, and energy-efficient fixtures throughout the project",
-    },
-    {
-      question:
-        "Are there any community events or activities organized for residents?",
-      answer:
-        "Regular community events, festivals, and activities are organized to foster a vibrant community atmosphere",
-    },
-    {
-      question:
-        "What kind of warranty or post-possession support is provided for the units?",
-      answer:
-        "We offer a 1-year comprehensive warranty on structural aspects and 6 months on fixtures, with dedicated post-possession support",
-    },
-    {
-      question:
-        "Are there any maintenance charges for the amenities and common areas?",
-      answer:
-        "A nominal maintenance fee is collected quarterly to ensure upkeep of all common areas and amenities",
-    },
-  ];
-
-  // State for FAQ accordions
+  const params = useParams();
+  const [projectData, setProjectData] = useState<ProjectData | null>(null);
+  const [loading, setLoading] = useState(true);
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
+  const [currentGalleryPage, setCurrentGalleryPage] = useState(0);
+  const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(
+    null
+  );
+  const imagesPerPage = 6;
+
+  // Function to handle image navigation in modal
+  const handleImageNavigation = (direction: "prev" | "next") => {
+    if (!projectData || selectedImageIndex === null) return;
+
+    const totalImages = projectData.property_gallery_images.length;
+
+    if (direction === "prev") {
+      setSelectedImageIndex((prevIndex) => {
+        if (prevIndex === null) return 0;
+        return prevIndex === 0 ? totalImages - 1 : prevIndex - 1;
+      });
+    } else {
+      setSelectedImageIndex((prevIndex) => {
+        if (prevIndex === null) return 0;
+        return prevIndex === totalImages - 1 ? 0 : prevIndex + 1;
+      });
+    }
+  };
+
+  // Function to handle keyboard navigation
+  useEffect(() => {
+    const handleKeyPress = (e: KeyboardEvent) => {
+      if (selectedImageIndex === null) return;
+
+      switch (e.key) {
+        case "Escape":
+          setSelectedImageIndex(null);
+          break;
+        case "ArrowLeft":
+          handleImageNavigation("prev");
+          break;
+        case "ArrowRight":
+          handleImageNavigation("next");
+          break;
+        default:
+          break;
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyPress);
+    return () => window.removeEventListener("keydown", handleKeyPress);
+  }, [selectedImageIndex, projectData]); // Add dependencies to ensure the latest state is used
+
+  useEffect(() => {
+    const fetchProjectData = async () => {
+      try {
+        // Fetch the projects data
+        const response = await fetch("/mock-data/projects_data.json");
+        const data = await response.json();
+
+        // Find the project with the matching ID
+        const projectId = parseInt(params.id as string);
+        const project = data.find(
+          (p: ProjectData) => p.project_id === projectId
+        );
+
+        if (project) {
+          setProjectData(project);
+        }
+      } catch (error) {
+        console.error("Error fetching project data:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProjectData();
+  }, [params.id]);
 
   // Toggle FAQ item
   const toggleFaq = (index: number) => {
     setOpenFaqIndex(openFaqIndex === index ? null : index);
   };
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        Loading...
+      </div>
+    );
+  }
+
+  if (!projectData) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        Project not found
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -92,34 +165,25 @@ export default function ProjectDetails() {
           {/* Left side - Property Image */}
           <div className="w-full lg:w-2/3">
             <div className="relative h-[450px] w-full rounded-lg overflow-hidden">
-              <Image
-                src="/images/cover-image.webp"
-                alt="Property View"
-                fill
-                className="object-cover"
-                priority
+              <video
+                src={projectData.property_video_link}
+                className="object-cover w-full h-full"
+                autoPlay
+                muted
+                loop
+                playsInline
+                controls={false}
               />
             </div>
 
             <div className="mt-8">
               <h1 className="text-3xl text-black font-bold">
-                Shanthiniketan - Kadugondanahalli | North Bangalore
+                {projectData.project_name} - {projectData.project_location}
               </h1>
               <div className="prose mt-4 text-gray-600">
-                <p>
-                  We believe everyone deserves a home - that makes them feel
-                  secure, connected—a place to call their own. A home that
-                  uplifts their confidence, allowing them to do more. A home
-                  that goes beyond their needs and enhances their lifestyle.
-                </p>
+                <p>{projectData.project_description}</p>
                 <p className="mt-4">
-                  By redefining the norms of the real estate market, we build
-                  homes that are both affordable and accessible, located in the
-                  heart of the city, making us our customer&apos;s choice. Where
-                  every detail is crafted carefully with your well-being in
-                  mind. Experience the luxury of two balconies, ample
-                  ventilation, standard amenities, spacious homes with rapidly
-                  growing infrastructure.
+                  {projectData.project_extended_description}
                 </p>
               </div>
             </div>
@@ -132,67 +196,32 @@ export default function ProjectDetails() {
 
               {/* Property Details Items */}
               <div className="space-y-6">
-                <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 flex-shrink-0">
-                    <Image
-                      src="/images/property-details/project_type.svg"
-                      alt="Project Type"
-                      width={32}
-                      height={32}
-                    />
+                {projectData.property_details.map((detail, index) => (
+                  <div key={index} className="flex items-center gap-3">
+                    <div className="w-8 h-8 flex-shrink-0">
+                      <Image
+                        src={detail.details_icon_path}
+                        alt={detail.detail_name}
+                        width={32}
+                        height={32}
+                      />
+                    </div>
+                    <div>
+                      <p className="text-gray-700 text-lg">
+                        {detail.detail_name}
+                      </p>
+                      <p className="text-black font-medium">
+                        {detail.detail_value}
+                      </p>
+                    </div>
                   </div>
-                  <div>
-                    <p className="text-gray-700 text-lg">Project Type</p>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 flex-shrink-0">
-                    <Image
-                      src="/images/property-details/bedrooms.svg"
-                      alt="Bedrooms"
-                      width={32}
-                      height={32}
-                    />
-                  </div>
-                  <div>
-                    <p className="text-gray-700 text-lg">Bedrooms</p>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 flex-shrink-0">
-                    <Image
-                      src="/images/property-details/development_site.svg"
-                      alt="Development Site"
-                      width={32}
-                      height={32}
-                    />
-                  </div>
-                  <div>
-                    <p className="text-gray-700 text-lg">Development Site</p>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 flex-shrink-0">
-                    <Image
-                      src="/images/property-details/totol_unit.svg"
-                      alt="Totol Unit"
-                      width={32}
-                      height={32}
-                    />
-                  </div>
-                  <div>
-                    <p className="text-gray-700 text-lg">Totol Unit</p>
-                  </div>
-                </div>
+                ))}
               </div>
 
               <div className="mt-10 pt-6 border-t">
                 <div className="flex justify-between items-center">
                   <span className="text-2xl text-black font-bold">
-                    ₹ 699.00
+                    {projectData.property_sample_price}
                   </span>
                   <button className="bg-blue-500 hover:bg-blue-600 text-white py-3 px-8 rounded-full text-lg transition-colors">
                     Book Now
@@ -210,21 +239,21 @@ export default function ProjectDetails() {
               <div className="border-t mb-6"></div>
 
               <div className="flex justify-between">
-                {Array(5)
-                  .fill("RERA")
-                  .map((cert, index) => (
-                    <div
-                      key={index}
-                      className="bg-blue-100 text-center w-[19%] flex flex-col justify-center min-h-[50px]"
-                    >
-                      <div className="text-xs text-black font-medium leading-tight">
-                        RERA
-                      </div>
-                      <div className="text-xs text-black leading-tight">
-                        Approved
-                      </div>
+                {projectData.property_certificates.map((cert, index) => (
+                  <div
+                    key={index}
+                    className="bg-blue-100 text-center w-[19%] flex flex-col justify-center min-h-[50px] p-1"
+                  >
+                    <div className="text-xs text-black font-medium leading-tight">
+                      {cert.split(" ")[0]}
                     </div>
-                  ))}
+                    <div className="text-xs text-black leading-tight">
+                      {cert.includes(" ")
+                        ? cert.split(" ").slice(1).join(" ")
+                        : "Approved"}
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
 
@@ -249,7 +278,12 @@ export default function ProjectDetails() {
 
         {/* Tabbed Sections (Amenities, Floor Plan, Specifications, Neighborhood) */}
         <section className="mt-12">
-          <TabSection amenities={amenitiesData} />
+          <TabSection
+            amenities={projectData.property_amenities}
+            floorPlans={projectData.property_floor_plans}
+            specifications={projectData.property_specifications}
+            neighborhood={projectData.property_neighborhood}
+          />
         </section>
 
         {/* Location Map */}
@@ -257,7 +291,7 @@ export default function ProjectDetails() {
           <h2 className="text-2xl font-bold mb-6">Location</h2>
           <div className="h-[400px] rounded-lg overflow-hidden">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.9932336676766!2d77.59791287381792!3d12.971598914933867!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1670c9b44e6d%3A0xf8dfc3e8517e4fe0!2sBengaluru%2C%20Karnataka%2C%20India!5e0!3m2!1sen!2sus!4v1688456594230!5m2!1sen!2sus"
+              src={`https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.9932336676766!2d${projectData.property_location.longitude}!3d${projectData.property_location.latitude}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1670c9b44e6d%3A0xf8dfc3e8517e4fe0!2sBengaluru%2C%20Karnataka%2C%20India!5e0!3m2!1sen!2sus!4v1688456594230!5m2!1sen!2sus`}
               width="100%"
               height="100%"
               style={{ border: 0 }}
@@ -271,21 +305,205 @@ export default function ProjectDetails() {
         {/* Gallery Section */}
         <section className="mt-12">
           <h2 className="text-2xl font-bold mb-6">Gallery</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {[1, 2, 3, 4, 5, 6].map((item) => (
-              <div
-                key={item}
-                className="relative h-64 rounded-lg overflow-hidden"
-              >
-                <Image
-                  src="/images/cards-images/clubhouse.webp"
-                  alt={`Gallery image ${item}`}
-                  fill
-                  className="object-cover hover:scale-110 transition-transform duration-300"
-                />
-              </div>
-            ))}
+          <div className="relative">
+            {projectData.property_gallery_images.length > imagesPerPage && (
+              <>
+                <button
+                  onClick={() =>
+                    setCurrentGalleryPage((prev) => Math.max(0, prev - 1))
+                  }
+                  disabled={currentGalleryPage === 0}
+                  className={`absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 bg-white rounded-full p-2 shadow-lg ${
+                    currentGalleryPage === 0
+                      ? "opacity-50 cursor-not-allowed"
+                      : "hover:bg-gray-100"
+                  }`}
+                  aria-label="Previous page"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={2}
+                    stroke="currentColor"
+                    className="w-6 h-6"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M15.75 19.5L8.25 12l7.5-7.5"
+                    />
+                  </svg>
+                </button>
+                <button
+                  onClick={() =>
+                    setCurrentGalleryPage((prev) =>
+                      Math.min(
+                        Math.ceil(
+                          projectData.property_gallery_images.length /
+                            imagesPerPage
+                        ) - 1,
+                        prev + 1
+                      )
+                    )
+                  }
+                  disabled={
+                    currentGalleryPage >=
+                    Math.ceil(
+                      projectData.property_gallery_images.length / imagesPerPage
+                    ) -
+                      1
+                  }
+                  className={`absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 bg-white rounded-full p-2 shadow-lg ${
+                    currentGalleryPage >=
+                    Math.ceil(
+                      projectData.property_gallery_images.length / imagesPerPage
+                    ) -
+                      1
+                      ? "opacity-50 cursor-not-allowed"
+                      : "hover:bg-gray-100"
+                  }`}
+                  aria-label="Next page"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={2}
+                    stroke="currentColor"
+                    className="w-6 h-6"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                    />
+                  </svg>
+                </button>
+              </>
+            )}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {projectData.property_gallery_images
+                .slice(
+                  currentGalleryPage * imagesPerPage,
+                  (currentGalleryPage + 1) * imagesPerPage
+                )
+                .map((image, index) => (
+                  <div
+                    key={index}
+                    className="relative h-64 rounded-lg overflow-hidden cursor-pointer"
+                    onClick={() =>
+                      setSelectedImageIndex(
+                        currentGalleryPage * imagesPerPage + index
+                      )
+                    }
+                  >
+                    <Image
+                      src={image}
+                      alt={`Gallery image ${
+                        currentGalleryPage * imagesPerPage + index + 1
+                      }`}
+                      fill
+                      className="object-cover hover:scale-110 transition-transform duration-300"
+                    />
+                  </div>
+                ))}
+            </div>
           </div>
+
+          {/* Image Modal */}
+          {selectedImageIndex !== null && projectData && (
+            <div
+              className="fixed inset-0 z-50 flex items-center justify-center bg-white/30 backdrop-blur-xl"
+              onClick={() => setSelectedImageIndex(null)}
+            >
+              <div
+                className="relative max-w-[90vw] max-h-[90vh] w-auto h-auto"
+                onClick={(e) => e.stopPropagation()}
+              >
+                {/* Close button */}
+                <button
+                  className="absolute -top-12 right-0 text-gray-800 hover:text-gray-600 z-50"
+                  onClick={() => setSelectedImageIndex(null)}
+                  aria-label="Close modal"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={2}
+                    stroke="currentColor"
+                    className="w-8 h-8"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  </svg>
+                </button>
+
+                {/* Navigation buttons */}
+                <button
+                  type="button"
+                  className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white rounded-full p-2 transition-colors shadow-lg z-50"
+                  onClick={() => handleImageNavigation("prev")}
+                  aria-label="Previous image"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={2}
+                    stroke="currentColor"
+                    className="w-6 h-6"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M15.75 19.5L8.25 12l7.5-7.5"
+                    />
+                  </svg>
+                </button>
+
+                <button
+                  type="button"
+                  className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white rounded-full p-2 transition-colors shadow-lg z-50"
+                  onClick={() => handleImageNavigation("next")}
+                  aria-label="Next image"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={2}
+                    stroke="currentColor"
+                    className="w-6 h-6"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                    />
+                  </svg>
+                </button>
+
+                {/* Modal Image */}
+                <div className="relative w-[80vw] h-[80vh] rounded-lg overflow-hidden shadow-2xl">
+                  <Image
+                    src={
+                      projectData.property_gallery_images[selectedImageIndex]
+                    }
+                    alt={`Gallery image ${selectedImageIndex + 1}`}
+                    fill
+                    className="object-contain"
+                    sizes="80vw"
+                    priority
+                  />
+                </div>
+              </div>
+            </div>
+          )}
         </section>
 
         {/* Book Now Section */}
@@ -294,14 +512,16 @@ export default function ProjectDetails() {
             <div className="flex items-center mb-4 md:mb-0">
               <div className="w-12 h-12 mr-4">
                 <Image
-                  src="/images/wallet.svg"
+                  src="/images/application-icons/wallet.svg"
                   alt="Price"
                   width={48}
                   height={48}
                 />
               </div>
               <div>
-                <p className="text-3xl text-black font-bold">₹ 60 Lac</p>
+                <p className="text-3xl text-black font-bold">
+                  {projectData.property_price}
+                </p>
               </div>
             </div>
             <button className="bg-blue-500 hover:bg-blue-600 text-white py-4 px-12 rounded-full text-lg transition-colors w-full md:w-auto">
@@ -314,7 +534,7 @@ export default function ProjectDetails() {
         <section className="mt-12">
           <h2 className="text-3xl font-bold mb-8 text-center">FAQ</h2>
           <div className="space-y-4">
-            {faqData.map((faq, index) => (
+            {projectData.property_faq.map((faq, index) => (
               <div key={index} className="border-b pb-4">
                 <div
                   className="flex justify-between items-center py-3 cursor-pointer"

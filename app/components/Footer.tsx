@@ -6,31 +6,43 @@ import Image from "next/image";
 const Footer = () => {
   return (
     <footer className="bg-black text-white">
-      <div className="max-w-[90%] mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div className="max-w-[90%] mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
           {/* Product */}
           <div className="col-span-1">
-            <h3 className="text-sm font-semibold uppercase tracking-wider mb-4">
+            <h3 className="text-xs sm:text-sm font-semibold uppercase tracking-wider mb-3 sm:mb-4">
               Product
             </h3>
-            <ul className="space-y-3">
+            <ul className="space-y-2 sm:space-y-3">
               <li>
-                <Link href="#" className="text-gray-300 hover:text-white">
+                <Link
+                  href="#"
+                  className="text-gray-300 hover:text-white text-sm sm:text-base transition-colors"
+                >
                   Listing
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-gray-300 hover:text-white">
+                <Link
+                  href="#"
+                  className="text-gray-300 hover:text-white text-sm sm:text-base transition-colors"
+                >
                   Property
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-gray-300 hover:text-white">
+                <Link
+                  href="#"
+                  className="text-gray-300 hover:text-white text-sm sm:text-base transition-colors"
+                >
                   Agents
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-gray-300 hover:text-white">
+                <Link
+                  href="#"
+                  className="text-gray-300 hover:text-white text-sm sm:text-base transition-colors"
+                >
                   Blog
                 </Link>
               </li>
@@ -39,27 +51,39 @@ const Footer = () => {
 
           {/* Resources */}
           <div className="col-span-1">
-            <h3 className="text-sm font-semibold uppercase tracking-wider mb-4">
+            <h3 className="text-xs sm:text-sm font-semibold uppercase tracking-wider mb-3 sm:mb-4">
               Resources
             </h3>
-            <ul className="space-y-3">
+            <ul className="space-y-2 sm:space-y-3">
               <li>
-                <Link href="#" className="text-gray-300 hover:text-white">
+                <Link
+                  href="#"
+                  className="text-gray-300 hover:text-white text-sm sm:text-base transition-colors"
+                >
                   Our Homes
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-gray-300 hover:text-white">
+                <Link
+                  href="#"
+                  className="text-gray-300 hover:text-white text-sm sm:text-base transition-colors"
+                >
                   Member Stories
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-gray-300 hover:text-white">
+                <Link
+                  href="#"
+                  className="text-gray-300 hover:text-white text-sm sm:text-base transition-colors"
+                >
                   Video
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-gray-300 hover:text-white">
+                <Link
+                  href="#"
+                  className="text-gray-300 hover:text-white text-sm sm:text-base transition-colors"
+                >
                   Free trial
                 </Link>
               </li>
@@ -68,27 +92,39 @@ const Footer = () => {
 
           {/* Company */}
           <div className="col-span-1">
-            <h3 className="text-sm font-semibold uppercase tracking-wider mb-4">
+            <h3 className="text-xs sm:text-sm font-semibold uppercase tracking-wider mb-3 sm:mb-4">
               Company
             </h3>
-            <ul className="space-y-3">
+            <ul className="space-y-2 sm:space-y-3">
               <li>
-                <Link href="#" className="text-gray-300 hover:text-white">
+                <Link
+                  href="#"
+                  className="text-gray-300 hover:text-white text-sm sm:text-base transition-colors"
+                >
                   Partnerships
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-gray-300 hover:text-white">
+                <Link
+                  href="#"
+                  className="text-gray-300 hover:text-white text-sm sm:text-base transition-colors"
+                >
                   Terms of use
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-gray-300 hover:text-white">
+                <Link
+                  href="#"
+                  className="text-gray-300 hover:text-white text-sm sm:text-base transition-colors"
+                >
                   Privacy
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-gray-300 hover:text-white">
+                <Link
+                  href="#"
+                  className="text-gray-300 hover:text-white text-sm sm:text-base transition-colors"
+                >
                   Sitemap
                 </Link>
               </li>
@@ -96,18 +132,21 @@ const Footer = () => {
           </div>
 
           {/* Get in touch */}
-          <div className="col-span-1">
-            <h3 className="text-sm font-semibold uppercase tracking-wider mb-4">
+          <div className="col-span-2 sm:col-span-1">
+            <h3 className="text-xs sm:text-sm font-semibold uppercase tracking-wider mb-3 sm:mb-4">
               Get in touch
             </h3>
-            <p className="text-gray-300 mb-4">
+            <p className="text-gray-300 mb-4 text-sm sm:text-base leading-relaxed">
               You&apos;ll find your next home, in any style you prefer.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-white">
+              <a
+                href="#"
+                className="text-gray-400 hover:text-white transition-colors p-1"
+              >
                 <span className="sr-only">Facebook</span>
                 <svg
-                  className="h-6 w-6"
+                  className="h-5 w-5 sm:h-6 sm:w-6"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                   aria-hidden="true"
@@ -119,10 +158,13 @@ const Footer = () => {
                   />
                 </svg>
               </a>
-              <a href="#" className="text-gray-400 hover:text-white">
+              <a
+                href="#"
+                className="text-gray-400 hover:text-white transition-colors p-1"
+              >
                 <span className="sr-only">Twitter</span>
                 <svg
-                  className="h-6 w-6"
+                  className="h-5 w-5 sm:h-6 sm:w-6"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                   aria-hidden="true"
@@ -130,10 +172,13 @@ const Footer = () => {
                   <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
                 </svg>
               </a>
-              <a href="#" className="text-gray-400 hover:text-white">
+              <a
+                href="#"
+                className="text-gray-400 hover:text-white transition-colors p-1"
+              >
                 <span className="sr-only">LinkedIn</span>
                 <svg
-                  className="h-6 w-6"
+                  className="h-5 w-5 sm:h-6 sm:w-6"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                   aria-hidden="true"
@@ -145,7 +190,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="mt-12 border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+        <div className="mt-8 sm:mt-12 border-t border-gray-800 pt-6 sm:pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <div className="mb-4 md:mb-0">
             <Link href="/" className="flex items-center">
               <Image
@@ -153,11 +198,11 @@ const Footer = () => {
                 alt="SHIRO"
                 width={140}
                 height={50}
-                className="h-10 w-auto filter invert"
+                className="h-8 sm:h-10 w-auto filter invert"
               />
             </Link>
           </div>
-          <p className="text-base text-gray-400">
+          <p className="text-sm sm:text-base text-gray-400 text-center md:text-left">
             Copyright 2025.com. All rights reserved.
           </p>
         </div>

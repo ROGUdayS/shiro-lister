@@ -26,6 +26,11 @@ const Navbar = () => {
     };
   }, []);
 
+  // Close mobile menu when clicking on a link
+  const handleMobileMenuClick = () => {
+    setIsMobileMenuOpen(false);
+  };
+
   return (
     <nav
       className={`fixed w-full z-50 transition-all duration-300 ${
@@ -44,7 +49,7 @@ const Navbar = () => {
                 alt="SHIRO"
                 width={140}
                 height={50}
-                className={`h-10 w-auto transition-all ${
+                className={`h-8 sm:h-10 w-auto transition-all ${
                   isProjectPage || isScrolled
                     ? "filter-none"
                     : "brightness-0 invert"
@@ -56,12 +61,12 @@ const Navbar = () => {
           {/* Desktop Navigation - Hidden on project pages */}
           {!isProjectPage && (
             <div className="hidden md:block">
-              <div className="ml-10 flex items-center space-x-8">
+              <div className="ml-10 flex items-center space-x-6 lg:space-x-8">
                 <Link
                   href="/"
                   className={`${
                     isScrolled ? "text-gray-900" : "text-white"
-                  } hover:text-blue-600 font-medium transition-colors`}
+                  } hover:text-blue-600 font-medium transition-colors text-sm lg:text-base`}
                 >
                   Home
                 </Link>
@@ -69,7 +74,7 @@ const Navbar = () => {
                   href="#projects"
                   className={`${
                     isScrolled ? "text-gray-900" : "text-white"
-                  } hover:text-blue-600 font-medium transition-colors`}
+                  } hover:text-blue-600 font-medium transition-colors text-sm lg:text-base`}
                 >
                   Projects
                 </Link>
@@ -77,7 +82,7 @@ const Navbar = () => {
                   href="#clubhouse"
                   className={`${
                     isScrolled ? "text-gray-900" : "text-white"
-                  } hover:text-blue-600 font-medium transition-colors`}
+                  } hover:text-blue-600 font-medium transition-colors text-sm lg:text-base`}
                 >
                   Clubhouse
                 </Link>
@@ -85,7 +90,7 @@ const Navbar = () => {
                   href="#gallery"
                   className={`${
                     isScrolled ? "text-gray-900" : "text-white"
-                  } hover:text-blue-600 font-medium transition-colors`}
+                  } hover:text-blue-600 font-medium transition-colors text-sm lg:text-base`}
                 >
                   Gallery
                 </Link>
@@ -93,13 +98,13 @@ const Navbar = () => {
                   href="#about"
                   className={`${
                     isScrolled ? "text-gray-900" : "text-white"
-                  } hover:text-blue-600 font-medium transition-colors`}
+                  } hover:text-blue-600 font-medium transition-colors text-sm lg:text-base`}
                 >
                   About
                 </Link>
                 <Link
                   href="#contact"
-                  className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md font-medium transition-colors"
+                  className="bg-blue-600 hover:bg-blue-700 text-white px-3 lg:px-4 py-2 rounded-md font-medium transition-colors text-sm lg:text-base"
                 >
                   Contact Us
                 </Link>
@@ -116,7 +121,8 @@ const Navbar = () => {
                   isScrolled
                     ? "text-gray-900 hover:text-blue-600"
                     : "text-white hover:text-blue-300"
-                } focus:outline-none`}
+                } focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2`}
+                aria-label="Toggle mobile menu"
               >
                 <span className="sr-only">Open main menu</span>
                 {isMobileMenuOpen ? (
@@ -160,41 +166,47 @@ const Navbar = () => {
 
       {/* Mobile menu - Hidden on project pages */}
       {!isProjectPage && isMobileMenuOpen && (
-        <div className="md:hidden bg-white shadow-lg">
+        <div className="md:hidden bg-white shadow-lg border-t border-gray-200">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             <Link
               href="/"
-              className="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:text-blue-600"
+              onClick={handleMobileMenuClick}
+              className="block px-3 py-3 rounded-md text-base font-medium text-gray-900 hover:text-blue-600 hover:bg-gray-50 transition-colors"
             >
               Home
             </Link>
             <Link
               href="#projects"
-              className="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:text-blue-600"
+              onClick={handleMobileMenuClick}
+              className="block px-3 py-3 rounded-md text-base font-medium text-gray-900 hover:text-blue-600 hover:bg-gray-50 transition-colors"
             >
               Projects
             </Link>
             <Link
               href="#clubhouse"
-              className="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:text-blue-600"
+              onClick={handleMobileMenuClick}
+              className="block px-3 py-3 rounded-md text-base font-medium text-gray-900 hover:text-blue-600 hover:bg-gray-50 transition-colors"
             >
               Clubhouse
             </Link>
             <Link
               href="#gallery"
-              className="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:text-blue-600"
+              onClick={handleMobileMenuClick}
+              className="block px-3 py-3 rounded-md text-base font-medium text-gray-900 hover:text-blue-600 hover:bg-gray-50 transition-colors"
             >
               Gallery
             </Link>
             <Link
               href="#about"
-              className="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:text-blue-600"
+              onClick={handleMobileMenuClick}
+              className="block px-3 py-3 rounded-md text-base font-medium text-gray-900 hover:text-blue-600 hover:bg-gray-50 transition-colors"
             >
               About
             </Link>
             <Link
               href="#contact"
-              className="block px-3 py-2 rounded-md text-base font-medium bg-blue-600 text-white hover:bg-blue-700"
+              onClick={handleMobileMenuClick}
+              className="block px-3 py-3 rounded-md text-base font-medium bg-blue-600 text-white hover:bg-blue-700 transition-colors"
             >
               Contact Us
             </Link>

@@ -79,9 +79,9 @@ export default function TabSection({
   return (
     <div className="bg-white rounded-lg overflow-hidden border border-blue-100">
       {/* Tab Headers */}
-      <div className="bg-blue-500 text-white flex">
+      <div className="bg-blue-500 text-white flex flex-wrap">
         <button
-          className={`px-6 py-4 font-medium text-center flex-1 focus:outline-none transition-colors ${
+          className={`px-3 sm:px-6 py-3 sm:py-4 font-medium text-center flex-1 min-w-0 text-xs sm:text-sm focus:outline-none transition-colors ${
             activeTab === "amenities" ? "bg-blue-600" : "hover:bg-blue-600"
           }`}
           onClick={() => setActiveTab("amenities")}
@@ -89,7 +89,7 @@ export default function TabSection({
           Amenities
         </button>
         <button
-          className={`px-6 py-4 font-medium text-center flex-1 focus:outline-none transition-colors ${
+          className={`px-3 sm:px-6 py-3 sm:py-4 font-medium text-center flex-1 min-w-0 text-xs sm:text-sm focus:outline-none transition-colors ${
             activeTab === "floorplan" ? "bg-blue-600" : "hover:bg-blue-600"
           }`}
           onClick={() => setActiveTab("floorplan")}
@@ -97,7 +97,7 @@ export default function TabSection({
           Floor Plan
         </button>
         <button
-          className={`px-6 py-4 font-medium text-center flex-1 focus:outline-none transition-colors ${
+          className={`px-3 sm:px-6 py-3 sm:py-4 font-medium text-center flex-1 min-w-0 text-xs sm:text-sm focus:outline-none transition-colors ${
             activeTab === "specification" ? "bg-blue-600" : "hover:bg-blue-600"
           }`}
           onClick={() => setActiveTab("specification")}
@@ -105,7 +105,7 @@ export default function TabSection({
           Specification
         </button>
         <button
-          className={`px-6 py-4 font-medium text-center flex-1 focus:outline-none transition-colors ${
+          className={`px-3 sm:px-6 py-3 sm:py-4 font-medium text-center flex-1 min-w-0 text-xs sm:text-sm focus:outline-none transition-colors ${
             activeTab === "neighborhood" ? "bg-blue-600" : "hover:bg-blue-600"
           }`}
           onClick={() => setActiveTab("neighborhood")}
@@ -116,24 +116,25 @@ export default function TabSection({
 
       {/* Amenities Content */}
       {activeTab === "amenities" && (
-        <div className="p-6">
-          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-4">
+        <div className="p-4 sm:p-6">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3 sm:gap-4">
             {amenities
               .filter((amenity) => amenity.exists)
               .map((amenity, index) => (
                 <div
                   key={index}
-                  className="border rounded-lg p-4 flex flex-col items-center text-center"
+                  className="border rounded-lg p-3 sm:p-4 flex flex-col items-center text-center"
                 >
-                  <div className="w-16 h-16 flex items-center justify-center mb-2">
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 flex items-center justify-center mb-2">
                     <Image
                       src={amenity.icon_path}
                       alt={amenity.name}
                       width={40}
                       height={40}
+                      className="w-8 h-8 sm:w-10 sm:h-10"
                     />
                   </div>
-                  <span className="text-xs text-black font-medium">
+                  <span className="text-xs text-black font-medium leading-tight">
                     {amenity.name}
                   </span>
                 </div>
@@ -144,7 +145,7 @@ export default function TabSection({
 
       {/* Floor Plan Content */}
       {activeTab === "floorplan" && (
-        <div className="p-6">
+        <div className="p-4 sm:p-6">
           {floorPlans.length > 0 ? (
             <>
               <div className="flex justify-center mb-4 overflow-x-auto">
@@ -153,7 +154,7 @@ export default function TabSection({
                     <button
                       key={index}
                       type="button"
-                      className={`px-4 py-2 text-sm font-medium ${
+                      className={`px-3 sm:px-4 py-2 text-xs sm:text-sm font-medium ${
                         activeFloorPlan === floorPlan.floor_level
                           ? "bg-blue-50 text-blue-700"
                           : "text-gray-900 hover:bg-blue-50 hover:text-blue-700"
@@ -179,17 +180,17 @@ export default function TabSection({
                   (floorPlan, index) =>
                     floorPlan.floor_level === activeFloorPlan && (
                       <div key={index}>
-                        <h3 className="text-2xl text-black font-semibold mb-4">
+                        <h3 className="text-xl sm:text-2xl text-black font-semibold mb-4">
                           {floorPlan.floor_level}
                         </h3>
-                        <div className="flex flex-col lg:flex-row gap-8">
+                        <div className="flex flex-col lg:flex-row gap-6 sm:gap-8">
                           <div className="lg:w-1/2">
-                            <p className="text-gray-600 mb-6">
+                            <p className="text-gray-600 mb-6 text-sm sm:text-base leading-relaxed">
                               A spacious and well-designed floor plan with
                               optimal use of space for comfortable living.
                             </p>
 
-                            <ul className="space-y-4 list-disc list-inside text-gray-600">
+                            <ul className="space-y-3 sm:space-y-4 list-disc list-inside text-gray-600 text-sm sm:text-base">
                               <li>Floor : {floorPlan.floor_level}</li>
                               <li>Total Area : {floorPlan.total_area}</li>
                               <li>Room : {floorPlan.rooms.Room}</li>
@@ -199,7 +200,7 @@ export default function TabSection({
                           </div>
 
                           <div className="lg:w-1/2 mt-6 lg:mt-0">
-                            <div className="relative h-[350px]">
+                            <div className="relative h-[250px] sm:h-[300px] lg:h-[350px]">
                               <Image
                                 src={floorPlan.floor_plan_path}
                                 alt={`Floor Plan - ${floorPlan.floor_level}`}
@@ -216,7 +217,7 @@ export default function TabSection({
             </>
           ) : (
             <div className="text-center py-8">
-              <p className="text-gray-600">
+              <p className="text-gray-600 text-sm sm:text-base">
                 No floor plans available for this property.
               </p>
             </div>
@@ -226,19 +227,19 @@ export default function TabSection({
 
       {/* Specification Content */}
       {activeTab === "specification" && (
-        <div className="p-6">
-          <div className="space-y-4">
+        <div className="p-4 sm:p-6">
+          <div className="space-y-3 sm:space-y-4">
             {specifications.map((spec, index) => (
               <div key={index} className="border-b pb-2">
                 <button
                   onClick={() => toggleSpec(index)}
-                  className="w-full flex items-center justify-between hover:bg-gray-50 p-2 rounded transition-colors"
+                  className="w-full flex items-center justify-between hover:bg-gray-50 p-2 sm:p-3 rounded transition-colors"
                 >
-                  <h3 className="text-lg text-black font-medium">
+                  <h3 className="text-base sm:text-lg text-black font-medium text-left pr-2">
                     {spec.specification_title}
                   </h3>
                   <span
-                    className="text-gray-500 transform transition-transform duration-200"
+                    className="text-gray-500 transform transition-transform duration-200 flex-shrink-0"
                     style={{
                       transform: expandedSpecs.has(index)
                         ? "rotate(180deg)"
@@ -247,7 +248,7 @@ export default function TabSection({
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      className="h-6 w-6"
+                      className="h-5 w-5 sm:h-6 sm:w-6"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
@@ -262,8 +263,8 @@ export default function TabSection({
                   </span>
                 </button>
                 {expandedSpecs.has(index) && (
-                  <div className="mt-2 pl-2">
-                    <p className="text-gray-600">
+                  <div className="mt-2 pl-2 sm:pl-4">
+                    <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
                       {spec.specification_details}
                     </p>
                   </div>
@@ -273,7 +274,7 @@ export default function TabSection({
 
             {specifications.length === 0 && (
               <div className="text-center py-8">
-                <p className="text-gray-600">
+                <p className="text-gray-600 text-sm sm:text-base">
                   No specifications available for this property.
                 </p>
               </div>
@@ -284,17 +285,19 @@ export default function TabSection({
 
       {/* Neighborhood Content */}
       {activeTab === "neighborhood" && (
-        <div className="p-6">
-          <div className="space-y-4">
+        <div className="p-4 sm:p-6">
+          <div className="space-y-3 sm:space-y-4">
             {Object.entries(neighborhood).map(([category, items], index) => (
               <div key={index} className="border-b pb-4">
                 <button
                   onClick={() => toggleNeighborhood(index)}
-                  className="w-full flex items-center justify-between hover:bg-gray-50 p-2 rounded transition-colors"
+                  className="w-full flex items-center justify-between hover:bg-gray-50 p-2 sm:p-3 rounded transition-colors"
                 >
-                  <h3 className="text-lg text-black font-medium">{category}</h3>
+                  <h3 className="text-base sm:text-lg text-black font-medium text-left pr-2">
+                    {category}
+                  </h3>
                   <span
-                    className="text-gray-500 transform transition-transform duration-200"
+                    className="text-gray-500 transform transition-transform duration-200 flex-shrink-0"
                     style={{
                       transform: expandedNeighborhoods.has(index)
                         ? "rotate(180deg)"
@@ -303,7 +306,7 @@ export default function TabSection({
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      className="h-6 w-6"
+                      className="h-5 w-5 sm:h-6 sm:w-6"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
@@ -318,9 +321,11 @@ export default function TabSection({
                   </span>
                 </button>
                 {expandedNeighborhoods.has(index) && (
-                  <div className="mt-4 pl-2 text-gray-600 space-y-2">
+                  <div className="mt-4 pl-2 sm:pl-4 text-gray-600 space-y-2">
                     {items.map((item, itemIndex) => (
-                      <p key={itemIndex}>{item}</p>
+                      <p key={itemIndex} className="text-sm sm:text-base">
+                        {item}
+                      </p>
                     ))}
                   </div>
                 )}
@@ -329,7 +334,7 @@ export default function TabSection({
 
             {Object.keys(neighborhood).length === 0 && (
               <div className="text-center py-8">
-                <p className="text-gray-600">
+                <p className="text-gray-600 text-sm sm:text-base">
                   No neighborhood information available for this property.
                 </p>
               </div>

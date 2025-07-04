@@ -506,30 +506,6 @@ export default function ProjectDetails() {
           )}
         </section>
 
-        {/* Book Now Section */}
-        <section className="mt-12">
-          <div className="bg-white rounded-lg shadow-md p-8 flex flex-col md:flex-row justify-between items-center">
-            <div className="flex items-center mb-4 md:mb-0">
-              <div className="w-12 h-12 mr-4">
-                <Image
-                  src="/images/application-icons/wallet.svg"
-                  alt="Price"
-                  width={48}
-                  height={48}
-                />
-              </div>
-              <div>
-                <p className="text-3xl text-black font-bold">
-                  {projectData.property_price}
-                </p>
-              </div>
-            </div>
-            <button className="bg-blue-500 hover:bg-blue-600 text-white py-4 px-12 rounded-full text-lg transition-colors w-full md:w-auto">
-              Book Now
-            </button>
-          </div>
-        </section>
-
         {/* FAQ Section */}
         <section className="mt-12">
           <h2 className="text-3xl font-bold mb-8 text-center">FAQ</h2>

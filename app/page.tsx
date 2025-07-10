@@ -3,23 +3,37 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
+import { useRouter } from "next/navigation";
 import Navbar from "./components/Navbar";
-import ContactUs from "./components/ContactUs";
 
 interface ProjectData {
   project_id: number;
   project_name: string;
   project_location: string;
+  project_type: "house" | "plot";
   property_price: string;
   property_full_address: string;
   property_cover_image: string;
   property_card_amenities: {
-    icon_path: string;
-    name: string;
+    label: string;
+    value: string;
   }[];
+  plot_overview?: {
+    size: string;
+    plot_type: string;
+    plot_facing: string;
+    zone: string;
+  };
+  residence_overview?: {
+    type: string;
+    floors: string;
+    built_up: string;
+    facing: string;
+  };
 }
 
 export default function Home() {
+  const router = useRouter();
   const [projects, setProjects] = useState<ProjectData[]>([]);
   const [loading, setLoading] = useState(true);
   const [currentProjectIndex, setCurrentProjectIndex] = useState(0);
@@ -121,6 +135,19 @@ export default function Home() {
     };
   }, [isDragging]);
 
+  const handleEnquireClick = (
+    e: React.MouseEvent,
+    projectName: string,
+    projectLocation: string
+  ) => {
+    e.preventDefault();
+    e.stopPropagation();
+    const encodedProject = encodeURIComponent(
+      `${projectName} - ${projectLocation}`
+    );
+    router.push(`/contact?project=${encodedProject}`);
+  };
+
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
@@ -196,11 +223,11 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Our Projects Section */}
+      {/* For Sale Section */}
       <section id="projects" className="py-12 sm:py-16 bg-gray-50">
         <div className="max-w-[90%] mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-4">
-            Our Projects
+            For Sale
           </h2>
           <p className="text-gray-600 text-center mb-8 sm:mb-12 max-w-3xl mx-auto text-sm sm:text-base">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -253,15 +280,11 @@ export default function Home() {
                                   key={index}
                                   className="flex items-center gap-1"
                                 >
-                                  <Image
-                                    src={amenity.icon_path}
-                                    alt={amenity.name}
-                                    width={16}
-                                    height={16}
-                                    className="opacity-60"
-                                  />
                                   <span className="text-[10px] text-gray-600">
-                                    {amenity.name}
+                                    {amenity.label}:
+                                  </span>
+                                  <span className="text-[10px] text-gray-600">
+                                    {amenity.value}
                                   </span>
                                 </div>
                               )
@@ -271,8 +294,17 @@ export default function Home() {
                             <span className="text-blue-600 text-lg sm:text-xl font-bold">
                               {project.property_price}
                             </span>
-                            <button className="bg-blue-600 hover:bg-blue-700 text-white px-3 sm:px-4 py-1.5 rounded-lg text-sm font-semibold transition duration-300">
-                              Buy Now
+                            <button
+                              onClick={(e) =>
+                                handleEnquireClick(
+                                  e,
+                                  project.project_name,
+                                  project.project_location
+                                )
+                              }
+                              className="bg-blue-600 hover:bg-blue-700 text-white px-3 sm:px-4 py-1.5 rounded-lg text-sm font-semibold transition duration-300"
+                            >
+                              Enquire Now
                             </button>
                           </div>
                         </div>
@@ -341,15 +373,11 @@ export default function Home() {
                                         key={index}
                                         className="flex items-center gap-1"
                                       >
-                                        <Image
-                                          src={amenity.icon_path}
-                                          alt={amenity.name}
-                                          width={16}
-                                          height={16}
-                                          className="opacity-60"
-                                        />
                                         <span className="text-[10px] text-gray-600">
-                                          {amenity.name}
+                                          {amenity.label}:
+                                        </span>
+                                        <span className="text-[10px] text-gray-600">
+                                          {amenity.value}
                                         </span>
                                       </div>
                                     )
@@ -359,8 +387,17 @@ export default function Home() {
                                   <span className="text-blue-600 text-xl font-bold">
                                     {project.property_price}
                                   </span>
-                                  <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-1.5 rounded-lg text-sm font-semibold transition duration-300">
-                                    Buy Now
+                                  <button
+                                    onClick={(e) =>
+                                      handleEnquireClick(
+                                        e,
+                                        project.project_name,
+                                        project.project_location
+                                      )
+                                    }
+                                    className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-1.5 rounded-lg text-sm font-semibold transition duration-300"
+                                  >
+                                    Enquire Now
                                   </button>
                                 </div>
                               </div>
@@ -441,12 +478,6 @@ export default function Home() {
                 to exceed expectations and set new standards in the real estate
                 industry.
               </p>
-              <Link
-                href="#contact"
-                className="bg-blue-600 hover:bg-blue-700 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-md inline-block text-sm sm:text-base"
-              >
-                Learn More
-              </Link>
             </div>
           </div>
 
@@ -475,19 +506,10 @@ export default function Home() {
                 foster connection, well-being, and prosperity for generations to
                 come.
               </p>
-              <Link
-                href="#contact"
-                className="bg-blue-600 hover:bg-blue-700 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-md inline-block text-sm sm:text-base"
-              >
-                Learn More
-              </Link>
             </div>
           </div>
         </div>
       </section>
-
-      {/* Contact Us Section */}
-      <ContactUs />
     </div>
   );
 }

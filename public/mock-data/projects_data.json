@@ -3,11 +3,24 @@
     "project_id": 1,
     "project_name": "Shanthiniketan - Kadugondanahalli",
     "project_location": "North Bangalore",
+    "project_type": "house",
     "project_description": "We believe everyone deserves a home - that makes them feel secure, connected—a place to call their own. A home that uplifts their confidence, allowing them to do more. A home that goes beyond their needs and enhances their lifestyle.",
     "project_extended_description": "By redefining the norms of the real estate market, we build homes that are both affordable and accessible, located in the heart of the city, making us our customer's choice. Where every detail is crafted carefully with your well-being in mind. Experience the luxury of two balconies, ample ventilation, standard amenities, spacious homes with rapidly growing infrastructure.",
     "property_price": "₹ 60 Lac",
     "property_sample_price": "₹ 699.00",
     "property_full_address": "41, Opposite to Venkatapura Metro Station, Nagawara Main Road, B M Layout, Vinobha Nagar, Kadugondanahalli, Bengaluru, Karnataka 560045",
+    "plot_overview": {
+      "size": "1200 Sqft",
+      "plot_type": "BDA",
+      "plot_facing": "South",
+      "zone": "Residential"
+    },
+    "residence_overview": {
+      "type": "Independent Villa",
+      "floors": "S+G+2.5",
+      "built_up": "4900 Sqft",
+      "facing": "North"
+    },
     "property_details": [
       {
         "details_icon_name": "project_type",
@@ -202,88 +215,60 @@
       },
       {
         "specification_title": "Flooring",
-        "specification_details": "Vitrified tiles in living, dining, and bedrooms"
+        "specification_details": "Imported marble in living and dining, wooden flooring in master bedroom"
       },
       {
         "specification_title": "Kitchen",
-        "specification_details": "Granite countertop with stainless steel sink and ceramic tile"
+        "specification_details": "Premium granite countertop with modular kitchen and chimney"
       },
       {
         "specification_title": "Bathrooms",
-        "specification_details": "Anti-skid ceramic floor tiles, wall tiles up to 7 feet height"
-      },
-      {
-        "specification_title": "Doors & Windows",
-        "specification_details": "Main door: Teak wood frame with designer shutter, Windows: UPVC frames with glass shutters"
-      },
-      {
-        "specification_title": "Electrical",
-        "specification_details": "Concealed copper wiring with modular switches"
-      },
-      {
-        "specification_title": "Plumbing",
-        "specification_details": "CPVC and PVC piping for water supply"
-      },
-      {
-        "specification_title": "Paint",
-        "specification_details": "Interior: Premium emulsion paint, Exterior: Weather-proof paint"
+        "specification_details": "Designer tiles, premium sanitary fixtures, and glass shower enclosures"
       }
     ],
     "property_neighborhood": {
       "Education": [
-        "Delhi Public School - 2 km",
-        "Ryan International School - 3.5 km",
-        "CMR University - 5 km"
+        "Whitefield Global School - 2 km",
+        "Greenwood High International School - 3 km",
+        "IIMB - 8 km"
       ],
       "Healthcare": [
-        "Columbia Asia Hospital - 4 km",
-        "Baptist Hospital - 5.5 km",
-        "Aster CMI Hospital - 7 km"
+        "Manipal Hospital - 3 km",
+        "Columbia Asia Hospital - 5 km"
       ],
       "Shopping & Entertainment": [
-        "Elements Mall - 2.5 km",
-        "Orion East Mall - 6 km",
-        "PVR Cinemas - 6 km"
-      ],
-      "Transportation": [
-        "Hebbal Metro Station - 3 km",
-        "Manyata Tech Park - 5 km",
-        "Kempegowda International Airport - 25 km"
+        "Phoenix Marketcity - 4 km",
+        "VR Bengaluru - 5 km",
+        "INOX Cinemas - 4.5 km"
       ]
     },
     "property_location": {
-      "latitude": 12.971599,
-      "longitude": 77.5979129
+      "latitude": 12.9698,
+      "longitude": 77.6469
     },
     "property_gallery_images": [
       "/images/project-imgages/shantinikethan-images/project-gallery-images/gallery-1.webp",
       "/images/project-imgages/shantinikethan-images/project-gallery-images/gallery-2.webp",
-      "/images/project-imgages/shantinikethan-images/project-gallery-images/gallery-3.webp",
-      "/images/project-imgages/shantinikethan-images/project-gallery-images/gallery-1.webp",
-      "/images/project-imgages/shantinikethan-images/project-gallery-images/gallery-1.webp",
-      "/images/project-imgages/shantinikethan-images/project-gallery-images/gallery-1.webp",
-      "/images/project-imgages/shantinikethan-images/project-gallery-images/gallery-1.webp",
-      "/images/project-imgages/shantinikethan-images/project-gallery-images/gallery-1.webp",
-      "/images/project-imgages/shantinikethan-images/project-gallery-images/gallery-1.webp"
+      "/images/project-imgages/shantinikethan-images/project-gallery-images/gallery-3.webp"
     ],
-    "property_cover_image": "/images/landing-page-images/cover-image.webp",
+    "property_cover_image": "/images/landing-page-images/house1.webp",
     "property_video_link": "/images/project-imgages/shantinikethan-images/video_trial/video_demo.mp4",
     "property_card_amenities": [
       {
-        "icon_path": "/images/property-card-images/PLAYGROUND.svg",
-        "name": "Kids & Toddler"
+        "label": "Facing",
+        "value": "North"
       },
       {
-        "icon_path": "/images/property-card-images/HALL.svg",
-        "name": "Multi-Purpose"
+        "label": "Size",
+        "value": "1200 Sqft"
       },
       {
-        "icon_path": "/images/property-card-images/GYM.svg",
-        "name": "Equipped Gym"
+        "label": "Khata",
+        "value": "A-Khata"
       },
       {
-        "icon_path": "/images/property-card-images/CCTV.svg",
-        "name": "CCTV"
+        "label": "Zone",
+        "value": "Residential"
       }
     ],
     "property_faq": [
@@ -321,11 +306,24 @@
     "project_id": 2,
     "project_name": "Lakeside View",
     "project_location": "East Bangalore",
+    "project_type": "house",
     "project_description": "Nestled amidst serene surroundings, Lakeside View offers a perfect blend of modern living and natural beauty. With stunning vistas of the nearby lake, these homes are designed for those who appreciate tranquility without compromising on urban conveniences.",
     "project_extended_description": "Each apartment at Lakeside View is thoughtfully designed to maximize natural light and ventilation while providing panoramic views of the pristine lake. The project incorporates sustainable design practices with rainwater harvesting, solar power, and waste management systems, making it an eco-conscious choice for environmentally aware homebuyers.",
     "property_price": "₹ 75 Lac",
     "property_sample_price": "₹ 750.00",
     "property_full_address": "23, Lake Road, , Nagawara Main Road, B M Layout, Vinobha Nagar, Kadugondanahalli, Bengaluru, Karnataka 560045",
+    "plot_overview": {
+      "size": "1500 Sqft",
+      "plot_type": "BDA",
+      "plot_facing": "East",
+      "zone": "Residential"
+    },
+    "residence_overview": {
+      "type": "Independent Villa",
+      "floors": "S+G+3",
+      "built_up": "5500 Sqft",
+      "facing": "East"
+    },
     "property_details": [
       {
         "details_icon_name": "project_type",
@@ -467,111 +465,103 @@
     },
     "property_location": {
       "latitude": 12.9698,
-      "longitude": 77.7499
+      "longitude": 77.6469
     },
     "property_gallery_images": [
-      "/images/project-imgages/shantinikethan-images/project-gallery-images/gallery-3.webp",
-      "/images/project-imgages/shantinikethan-images/project-gallery-images/gallery-3.webp",
-      "/images/project-imgages/shantinikethan-images/project-gallery-images/gallery-3.webp",
-      "/images/project-imgages/shantinikethan-images/project-gallery-images/gallery-3.webp",
-      "/images/project-imgages/shantinikethan-images/project-gallery-images/gallery-3.webp",
+      "/images/project-imgages/shantinikethan-images/project-gallery-images/gallery-1.webp",
+      "/images/project-imgages/shantinikethan-images/project-gallery-images/gallery-2.webp",
       "/images/project-imgages/shantinikethan-images/project-gallery-images/gallery-3.webp"
     ],
-    "property_cover_image": "/images/cards-images/house1.webp",
+    "property_cover_image": "/images/landing-page-images/house1.webp",
     "property_video_link": "/images/project-imgages/shantinikethan-images/video_trial/video_demo.mp4",
     "property_card_amenities": [
       {
-        "icon_path": "/images/property-card-images/PLAYGROUND.svg",
-        "name": "Kids & Toddler"
+        "label": "Facing",
+        "value": "East"
       },
       {
-        "icon_path": "/images/property-card-images/HALL.svg",
-        "name": "Multi-Purpose"
+        "label": "Size",
+        "value": "1500 Sqft"
       },
       {
-        "icon_path": "/images/property-card-images/GYM.svg",
-        "name": "Equipped Gym"
+        "label": "Khata",
+        "value": "A-Khata"
       },
       {
-        "icon_path": "/images/property-card-images/CCTV.svg",
-        "name": "CCTV"
+        "label": "Zone",
+        "value": "Residential"
       }
     ],
     "property_faq": [
       {
-        "question": "What are the parking facilities available?",
-        "answer": "Each unit comes with one dedicated covered parking spot, with options to purchase additional parking spaces"
+        "question": "What makes Lakeside View unique compared to other projects?",
+        "answer": "Our project offers direct lake views from most units, eco-friendly design, and premium amenities in a serene environment"
       },
       {
-        "question": "Is there a clubhouse facility?",
-        "answer": "Yes, our project features a state-of-the-art clubhouse with indoor games, party hall, and fitness center"
+        "question": "Are there any water sports or recreational activities available?",
+        "answer": "Yes, we have tie-ups with local water sports providers and organize community recreational activities"
       },
       {
-        "question": "What security arrangements are in place?",
-        "answer": "We provide 24/7 security, CCTV surveillance, intercom facility, and access control systems for residents' safety"
+        "question": "What are the environmental benefits of living here?",
+        "answer": "Better air quality due to lake proximity, natural cooling, and our sustainable building practices"
       }
     ]
   },
   {
     "project_id": 3,
-    "project_name": "Urban Heights",
-    "project_location": "Central Bangalore",
-    "project_description": "Urban Heights brings luxury living to the heart of the city. These premium apartments offer the perfect combination of sophistication, convenience, and modern amenities for the discerning urban dweller.",
-    "project_extended_description": "Strategically located in the city center, Urban Heights provides unparalleled access to business districts, shopping centers, and entertainment venues. The project's architecture blends contemporary design with functional spaces, creating homes that are both elegant and practical for modern lifestyles.",
-    "property_price": "₹ 95 Lac",
-    "property_sample_price": "₹ 950.00",
-    "property_full_address": "12, MG Road, Central Business District, Bengaluru, Karnataka 560001",
+    "project_name": "Green Valley Plots",
+    "project_location": "South Bangalore",
+    "project_type": "plot",
+    "project_description": "Premium residential plots in the heart of South Bangalore, offering excellent connectivity and future appreciation potential. These DTCP approved plots are perfect for building your dream home in a well-planned layout.",
+    "project_extended_description": "Green Valley Plots is strategically located with excellent infrastructure development in the pipeline. The layout is designed with wide roads, proper drainage, and ample green spaces. Each plot comes with clear title deeds and all necessary approvals, making it a hassle-free investment opportunity.",
+    "property_price": "₹ 45 Lac",
+    "property_sample_price": "₹ 450.00",
+    "property_full_address": "Survey No. 45, Green Valley Layout, Banashankari, South Bangalore, Karnataka 560070",
+    "plot_overview": {
+      "size": "1800 Sqft",
+      "plot_type": "DTCP",
+      "plot_facing": "West",
+      "zone": "Residential"
+    },
     "property_details": [
       {
         "details_icon_name": "project_type",
         "details_icon_path": "/images/application-icons/property-details/project_type.svg",
-        "detail_name": "Apartment",
+        "detail_name": "Plot",
         "detail_value": "Residential"
-      },
-      {
-        "details_icon_name": "bedrooms",
-        "details_icon_path": "/images/application-icons/property-details/bedrooms.svg",
-        "detail_name": "Bedrooms",
-        "detail_value": "3-4 BHK"
       },
       {
         "details_icon_name": "development_site",
         "details_icon_path": "/images/application-icons/property-details/development_site.svg",
-        "detail_name": "Development Site",
-        "detail_value": "1.8 Acres"
+        "detail_name": "Total Area",
+        "detail_value": "15 Acres"
       },
       {
         "details_icon_name": "total_unit",
         "details_icon_path": "/images/application-icons/property-details/totol_unit.svg",
-        "detail_name": "Total Units",
-        "detail_value": "90"
+        "detail_name": "Total Plots",
+        "detail_value": "250"
       }
     ],
     "property_certificates": [
-      "RERA Approved",
+      "DTCP Approved",
       "BBMP Approved",
       "BWSSB Approved",
       "BESCOM Approved",
-      "Fire Department Approved"
+      "Pollution Control Board Approved"
     ],
     "property_amenities": [
       {
         "exists": true,
-        "icon_name": "fully_equipped_gym",
-        "icon_path": "/images/application-icons/projects-amenities/fully_equipped_gym.svg",
-        "name": "Fully Equipped Gym"
+        "icon_name": "avenue_tree_plantation",
+        "icon_path": "/images/application-icons/projects-amenities/avenue_tree_plantation.svg",
+        "name": "Avenue Tree Plantation"
       },
       {
         "exists": true,
-        "icon_name": "spa",
-        "icon_path": "/images/application-icons/projects-amenities/spa.svg",
-        "name": "Spa & Sauna"
-      },
-      {
-        "exists": true,
-        "icon_name": "rooftop_lounge",
-        "icon_path": "/images/application-icons/projects-amenities/rooftop_lounge.svg",
-        "name": "Rooftop Lounge"
+        "icon_name": "arch_designed_entry",
+        "icon_path": "/images/application-icons/projects-amenities/arch_designed_entry.svg",
+        "name": "Arch Designed Entry"
       },
       {
         "exists": true,
@@ -581,118 +571,99 @@
       },
       {
         "exists": true,
-        "icon_name": "elevators",
-        "icon_path": "/images/application-icons/projects-amenities/elevators.svg",
-        "name": "Smart Elevators"
+        "icon_name": "security",
+        "icon_path": "/images/application-icons/projects-amenities/security.svg",
+        "name": "24/7 Security"
       },
       {
         "exists": true,
-        "icon_name": "charging_station",
-        "icon_path": "/images/application-icons/projects-amenities/charging_station.svg",
-        "name": "E-charging Station"
-      }
-    ],
-    "property_floor_plans": [
-      {
-        "floor_level": "3 BHK Luxury",
-        "total_area": "1850 sq ft",
-        "rooms": {
-          "Room": 3,
-          "Bed": 3,
-          "Bath": 3
-        },
-        "floor_plan_path": "/images/project-imgages/shantinikethan-images/floor-plans/floor_plan.jpg"
+        "icon_name": "high_raised_walls",
+        "icon_path": "/images/application-icons/projects-amenities/high_raised_walls.svg",
+        "name": "High-raised Boundary Walls"
       },
       {
-        "floor_level": "4 BHK Penthouse",
-        "total_area": "2450 sq ft",
-        "rooms": {
-          "Room": 4,
-          "Bed": 4,
-          "Bath": 4
-        },
-        "floor_plan_path": "/images/project-imgages/shantinikethan-images/floor-plans/floor_plan.jpg"
+        "exists": true,
+        "icon_name": "gates",
+        "icon_path": "/images/application-icons/projects-amenities/gates.svg",
+        "name": "Security Gates"
       }
     ],
     "property_specifications": [
       {
-        "specification_title": "Structure",
-        "specification_details": "RCC framed structure with earthquake-resistant design"
+        "specification_title": "Plot Sizes",
+        "specification_details": "Various sizes available from 1200 sq ft to 3000 sq ft"
       },
       {
-        "specification_title": "Flooring",
-        "specification_details": "Italian marble in living and dining, engineered wooden flooring in bedrooms"
+        "specification_title": "Road Width",
+        "specification_details": "30 feet wide internal roads with proper drainage"
       },
       {
-        "specification_title": "Kitchen",
-        "specification_details": "Fully modular kitchen with imported fittings and high-end appliances"
+        "specification_title": "Utilities",
+        "specification_details": "Underground electrical cables, water supply, and sewage connections"
       },
       {
-        "specification_title": "Smart Home",
-        "specification_details": "Voice-controlled lighting, temperature, and security systems"
+        "specification_title": "Approvals",
+        "specification_details": "DTCP approved layout with all necessary clearances"
       }
     ],
     "property_neighborhood": {
-      "Business": [
-        "UB City - 1 km",
-        "World Trade Center - 3 km",
-        "Brigade Road Business District - 1.5 km"
+      "Education": [
+        "National Public School - 1.5 km",
+        "Bangalore University - 3 km",
+        "Christ University - 4 km"
       ],
-      "Entertainment": [
-        "Cubbon Park - 2 km",
-        "MG Road - 0.5 km",
-        "Garuda Mall - 1 km"
-      ],
-      "Transportation": [
-        "MG Road Metro Station - 0.3 km",
-        "Kempegowda Bus Station - 5 km",
-        "Bengaluru City Railway Station - 4 km"
+      "Healthcare": ["Apollo Hospital - 2 km", "Fortis Hospital - 3.5 km"],
+      "Shopping & Entertainment": [
+        "Royal Meenakshi Mall - 2.5 km",
+        "Forum Mall - 4 km",
+        "PVR Cinemas - 3 km"
       ]
     },
     "property_location": {
-      "latitude": 12.9716,
-      "longitude": 77.5946
+      "latitude": 12.9352,
+      "longitude": 77.5431
     },
     "property_gallery_images": [
+      "/images/project-imgages/shantinikethan-images/project-gallery-images/gallery-1.webp",
       "/images/project-imgages/shantinikethan-images/project-gallery-images/gallery-2.webp",
-      "/images/project-imgages/shantinikethan-images/project-gallery-images/gallery-2.webp",
-      "/images/project-imgages/shantinikethan-images/project-gallery-images/gallery-2.webp",
-      "/images/project-imgages/shantinikethan-images/project-gallery-images/gallery-2.webp",
-      "/images/project-imgages/shantinikethan-images/project-gallery-images/gallery-2.webp",
-      "/images/project-imgages/shantinikethan-images/project-gallery-images/gallery-2.webp"
+      "/images/project-imgages/shantinikethan-images/project-gallery-images/gallery-3.webp"
     ],
-    "property_cover_image": "/images/cards-images/house1.webp",
+    "property_cover_image": "/images/landing-page-images/house1.webp",
     "property_video_link": "/images/project-imgages/shantinikethan-images/video_trial/video_demo.mp4",
     "property_card_amenities": [
       {
-        "icon_path": "/images/property-card-images/PLAYGROUND.svg",
-        "name": "Kids & Toddler"
+        "label": "Facing",
+        "value": "West"
       },
       {
-        "icon_path": "/images/property-card-images/HALL.svg",
-        "name": "Multi-Purpose"
+        "label": "Size",
+        "value": "1800 Sqft"
       },
       {
-        "icon_path": "/images/property-card-images/GYM.svg",
-        "name": "Equipped Gym"
+        "label": "Khata",
+        "value": "A-Khata"
       },
       {
-        "icon_path": "/images/property-card-images/CCTV.svg",
-        "name": "CCTV"
+        "label": "Zone",
+        "value": "Residential"
       }
     ],
     "property_faq": [
       {
-        "question": "Is there a concierge service available?",
-        "answer": "Yes, our property offers 24/7 concierge services to assist with various requirements including housekeeping, maintenance, and guest services"
+        "question": "What approvals does the plot layout have?",
+        "answer": "The layout is DTCP approved with all necessary clearances from BBMP, BWSSB, and BESCOM"
       },
       {
-        "question": "What is the timeline for project completion?",
-        "answer": "The project is scheduled for completion by December 2023, with phased handover of units starting from October 2023"
+        "question": "Can I start construction immediately after purchase?",
+        "answer": "Yes, once you complete the registration process, you can start construction as per approved building plans"
       },
       {
-        "question": "Are there any special facilities for work-from-home professionals?",
-        "answer": "Yes, we provide dedicated co-working spaces with high-speed internet, meeting rooms, and private cabins for residents who work remotely"
+        "question": "Are there any restrictions on the type of construction?",
+        "answer": "Construction should follow BBMP guidelines and approved building plans. We provide architectural support if needed"
+      },
+      {
+        "question": "What is the expected appreciation in this area?",
+        "answer": "The area has shown consistent 15-20% annual appreciation due to excellent connectivity and infrastructure development"
       }
     ]
   }

@@ -3,7 +3,7 @@
 import Image from "next/image";
 import TabSection from "@/app/components/TabSection";
 import { useState, useEffect, useRef } from "react";
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 
 interface ProjectData {
   project_id: number;
@@ -59,6 +59,7 @@ interface ProjectData {
 
 export default function ProjectDetails() {
   const params = useParams();
+  const router = useRouter();
   const [projectData, setProjectData] = useState<ProjectData | null>(null);
   const [loading, setLoading] = useState(true);
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
@@ -70,6 +71,7 @@ export default function ProjectDetails() {
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
   const [currentX, setCurrentX] = useState(0);
+  const [showFullDescription, setShowFullDescription] = useState(false);
   const galleryRef = useRef<HTMLDivElement>(null);
   const imagesPerPage = 6;
 
@@ -226,6 +228,19 @@ export default function ProjectDetails() {
     setOpenFaqIndex(openFaqIndex === index ? null : index);
   };
 
+  const handleEnquireClick = (
+    e: React.MouseEvent,
+    projectName: string,
+    projectLocation: string
+  ) => {
+    e.preventDefault();
+    e.stopPropagation();
+    const encodedProject = encodeURIComponent(
+      `${projectName} - ${projectLocation}`
+    );
+    router.push(`/contact?project=${encodedProject}`);
+  };
+
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
@@ -251,11 +266,11 @@ export default function ProjectDetails() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <div className="max-w-[90%] mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 pt-20">
+      <div className="max-w-[95%] mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 pt-24 sm:pt-28 pb-20 sm:pb-6">
         <div className="flex flex-col lg:flex-row gap-6 sm:gap-8">
           {/* Left side - Property Image */}
           <div className="w-full lg:w-2/3">
-            <div className="relative h-[300px] sm:h-[400px] lg:h-[450px] w-full rounded-lg overflow-hidden">
+            <div className="relative h-[200px] sm:h-[300px] lg:h-[350px] w-full rounded-none sm:rounded-lg overflow-hidden">
               <video
                 src={projectData.property_video_link}
                 className="object-cover w-full h-full"
@@ -268,50 +283,86 @@ export default function ProjectDetails() {
             </div>
 
             <div className="mt-6 sm:mt-8">
-              <h1 className="text-2xl sm:text-3xl text-black font-bold mb-4">
+              <h1 className="text-lg sm:text-2xl lg:text-3xl text-black font-bold mb-3 sm:mb-4">
                 {projectData.project_name} - {projectData.project_location}
               </h1>
-              <div className="prose mt-4 text-gray-600">
-                <p className="text-sm sm:text-base leading-relaxed">
-                  {projectData.project_description}
-                </p>
-                <p className="mt-4 text-sm sm:text-base leading-relaxed">
-                  {projectData.project_extended_description}
+              <div className="prose mt-3 sm:mt-4 text-gray-600">
+                <p className="text-xs sm:text-sm lg:text-base leading-relaxed">
+                  {showFullDescription
+                    ? `${projectData.project_description} ${projectData.project_extended_description}`
+                    : projectData.project_description}
                 </p>
               </div>
+              {projectData.project_extended_description && (
+                <button
+                  onClick={() => setShowFullDescription(!showFullDescription)}
+                  className="text-blue-500 hover:text-blue-600 text-xs sm:text-sm lg:text-base mt-2 sm:hidden"
+                >
+                  {showFullDescription ? "Show Less" : "Show More"}
+                </button>
+              )}
             </div>
           </div>
 
           {/* Right side - Property Details */}
           <div className="w-full lg:w-1/3">
             <div className="bg-white rounded-lg shadow-md p-4 sm:p-6">
-              <h2 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6">
+              <h2 className="text-lg sm:text-xl lg:text-2xl font-bold mb-3 sm:mb-4 lg:mb-6">
                 Property Details
               </h2>
 
               {/* Property Details Items */}
-              <div className="space-y-4 sm:space-y-6">
-                {projectData.property_details.map((detail, index) => (
-                  <div key={index} className="flex items-center gap-3">
-                    <div className="w-6 h-6 sm:w-8 sm:h-8 flex-shrink-0">
-                      <Image
-                        src={detail.details_icon_path}
-                        alt={detail.detail_name}
-                        width={32}
-                        height={32}
-                        className="w-full h-full"
-                      />
-                    </div>
-                    <div>
-                      <p className="text-gray-700 text-sm sm:text-lg">
+              <div className="space-y-4 sm:space-y-6 md:space-y-6">
+                {/* Mobile Grid Layout */}
+                <div className="grid grid-cols-4 gap-3 md:hidden">
+                  {projectData.property_details.map((detail, index) => (
+                    <div
+                      key={index}
+                      className="flex flex-col items-center justify-center text-center p-2 bg-gray-50 rounded-lg h-20 w-full"
+                    >
+                      <div className="w-6 h-6 mb-1">
+                        <Image
+                          src={detail.details_icon_path}
+                          alt={detail.detail_name}
+                          width={24}
+                          height={24}
+                          className="w-full h-full"
+                        />
+                      </div>
+                      <p className="text-gray-700 text-[8px] font-medium mb-0.5 leading-tight">
                         {detail.detail_name}
                       </p>
-                      <p className="text-black font-medium text-sm sm:text-base">
+                      <p className="text-black font-semibold text-[8px] leading-tight">
                         {detail.detail_value}
                       </p>
                     </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
+
+                {/* Desktop/Tablet Layout */}
+                <div className="hidden md:block">
+                  {projectData.property_details.map((detail, index) => (
+                    <div key={index} className="flex items-center gap-3 mb-4">
+                      <div className="w-6 h-6 sm:w-8 sm:h-8 flex-shrink-0">
+                        <Image
+                          src={detail.details_icon_path}
+                          alt={detail.detail_name}
+                          width={32}
+                          height={32}
+                          className="w-full h-full"
+                        />
+                      </div>
+                      <div>
+                        <p className="text-gray-700 text-sm sm:text-lg">
+                          {detail.detail_name}
+                        </p>
+                        <p className="text-black font-medium text-sm sm:text-base">
+                          {detail.detail_value}
+                        </p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
 
               <div className="mt-8 sm:mt-10 pt-4 sm:pt-6 border-t">
@@ -319,8 +370,18 @@ export default function ProjectDetails() {
                   <span className="text-xl sm:text-2xl text-black font-bold">
                     {projectData.property_sample_price}
                   </span>
-                  <button className="bg-blue-500 hover:bg-blue-600 text-white py-3 px-6 sm:px-8 rounded-full text-base sm:text-lg transition-colors w-full sm:w-auto">
-                    Book Now
+                  {/* Desktop Enquire Now Button */}
+                  <button
+                    onClick={(e) =>
+                      handleEnquireClick(
+                        e,
+                        projectData.project_name,
+                        projectData.project_location
+                      )
+                    }
+                    className="hidden sm:block bg-blue-500 hover:bg-blue-600 text-white py-3 px-6 sm:px-8 rounded-full text-base sm:text-lg transition-colors w-full sm:w-auto"
+                  >
+                    Enquire Now
                   </button>
                 </div>
               </div>
@@ -328,7 +389,7 @@ export default function ProjectDetails() {
 
             {/* Certificates Section */}
             <div className="bg-white rounded-lg shadow-md p-4 sm:p-6 mt-4 sm:mt-6">
-              <h3 className="text-lg sm:text-xl text-black font-bold mb-4 sm:mb-6">
+              <h3 className="text-base sm:text-lg lg:text-xl text-black font-bold mb-3 sm:mb-4 lg:mb-6">
                 Certificates
               </h3>
 
@@ -384,10 +445,10 @@ export default function ProjectDetails() {
 
         {/* Location Map */}
         <section className="mt-8 sm:mt-12">
-          <h2 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6">
+          <h2 className="text-lg sm:text-xl lg:text-2xl font-bold mb-3 sm:mb-4 lg:mb-6">
             Location
           </h2>
-          <div className="h-[300px] sm:h-[400px] rounded-lg overflow-hidden">
+          <div className="h-[200px] sm:h-[300px] lg:h-[400px] rounded-none sm:rounded-lg overflow-hidden">
             <iframe
               src={`https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.9932336676766!2d${projectData.property_location.longitude}!3d${projectData.property_location.latitude}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1670c9b44e6d%3A0xf8dfc3e8517e4fe0!2sBengaluru%2C%20Karnataka%2C%20India!5e0!3m2!1sen!2sus!4v1688456594230!5m2!1sen!2sus`}
               width="100%"
@@ -402,7 +463,7 @@ export default function ProjectDetails() {
 
         {/* Gallery Section */}
         <section className="mt-8 sm:mt-12">
-          <h2 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6">
+          <h2 className="text-lg sm:text-xl lg:text-2xl font-bold mb-3 sm:mb-4 lg:mb-6">
             Gallery
           </h2>
 
@@ -496,7 +557,7 @@ export default function ProjectDetails() {
                   .map((image, index) => (
                     <div
                       key={index}
-                      className="relative h-64 rounded-lg overflow-hidden cursor-pointer"
+                      className="relative h-48 sm:h-64 rounded-none sm:rounded-lg overflow-hidden cursor-pointer"
                       onClick={() =>
                         setSelectedImageIndex(
                           currentGalleryPage * imagesPerPage + index
@@ -538,7 +599,7 @@ export default function ProjectDetails() {
               >
                 {projectData.property_gallery_images.map((image, index) => (
                   <div key={index} className="w-full flex-shrink-0 px-2">
-                    <div className="relative h-64 rounded-lg overflow-hidden cursor-pointer">
+                    <div className="relative h-48 sm:h-64 rounded-none sm:rounded-lg overflow-hidden cursor-pointer">
                       <Image
                         src={image}
                         alt={`Gallery image ${index + 1}`}
@@ -648,7 +709,7 @@ export default function ProjectDetails() {
 
         {/* FAQ Section */}
         <section className="mt-8 sm:mt-12">
-          <h2 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 text-center">
+          <h2 className="text-lg sm:text-xl lg:text-2xl font-bold mb-4 sm:mb-6 lg:mb-8 text-center">
             FAQ
           </h2>
           <div className="space-y-3 sm:space-y-4">
@@ -658,10 +719,10 @@ export default function ProjectDetails() {
                   className="flex justify-between items-center py-3 cursor-pointer"
                   onClick={() => toggleFaq(index)}
                 >
-                  <h3 className="text-base sm:text-lg font-medium text-gray-800 pr-4">
+                  <h3 className="text-sm sm:text-base lg:text-lg font-medium text-gray-800 pr-4">
                     {faq.question}
                   </h3>
-                  <div className="text-xl sm:text-2xl text-gray-500 transition-transform duration-200 flex-shrink-0">
+                  <div className="text-lg sm:text-xl lg:text-2xl text-gray-500 transition-transform duration-200 flex-shrink-0">
                     {openFaqIndex === index ? (
                       <span className="transform rotate-45 inline-block">
                         +
@@ -673,7 +734,7 @@ export default function ProjectDetails() {
                 </div>
                 {openFaqIndex === index && (
                   <div className="py-2 text-gray-600 transition-all duration-200 ease-in-out">
-                    <p className="text-sm sm:text-base leading-relaxed">
+                    <p className="text-xs sm:text-sm lg:text-base leading-relaxed">
                       {faq.answer}
                     </p>
                   </div>
@@ -682,6 +743,30 @@ export default function ProjectDetails() {
             ))}
           </div>
         </section>
+      </div>
+
+      {/* Mobile Floating Enquire Now Button */}
+      <div className="fixed bottom-0 left-0 right-0 z-40 sm:hidden bg-white border-t border-gray-200 p-4">
+        <div className="flex items-center justify-between">
+          <div className="flex flex-col">
+            <span className="text-xs text-gray-500">Starting from</span>
+            <span className="text-lg font-bold text-black">
+              {projectData.property_sample_price}
+            </span>
+          </div>
+          <button
+            onClick={(e) =>
+              handleEnquireClick(
+                e,
+                projectData.project_name,
+                projectData.project_location
+              )
+            }
+            className="bg-blue-500 hover:bg-blue-600 text-white px-8 py-3 rounded-lg text-base font-semibold transition-colors shadow-lg"
+          >
+            Enquire Now
+          </button>
+        </div>
       </div>
     </div>
   );

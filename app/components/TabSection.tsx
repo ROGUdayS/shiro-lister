@@ -117,24 +117,24 @@ export default function TabSection({
       {/* Amenities Content */}
       {activeTab === "amenities" && (
         <div className="p-4 sm:p-6">
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3 sm:gap-4">
+          <div className="grid grid-cols-4 gap-3 sm:gap-4">
             {amenities
               .filter((amenity) => amenity.exists)
               .map((amenity, index) => (
                 <div
                   key={index}
-                  className="border rounded-lg p-3 sm:p-4 flex flex-col items-center text-center"
+                  className="border rounded-lg p-2 sm:p-3 flex flex-col items-center text-center"
                 >
-                  <div className="w-12 h-12 sm:w-16 sm:h-16 flex items-center justify-center mb-2">
+                  <div className="w-8 h-8 sm:w-12 sm:h-12 flex items-center justify-center mb-1 sm:mb-2">
                     <Image
                       src={amenity.icon_path}
                       alt={amenity.name}
-                      width={40}
-                      height={40}
-                      className="w-8 h-8 sm:w-10 sm:h-10"
+                      width={32}
+                      height={32}
+                      className="w-6 h-6 sm:w-8 sm:h-8"
                     />
                   </div>
-                  <span className="text-xs text-black font-medium leading-tight">
+                  <span className="text-[8px] sm:text-xs text-black font-medium leading-tight">
                     {amenity.name}
                   </span>
                 </div>

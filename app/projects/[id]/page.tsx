@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import TabSection from "@/app/components/TabSection";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { useParams, useRouter } from "next/navigation";
 
 interface ProjectData {
@@ -76,23 +76,26 @@ export default function ProjectDetails() {
   const imagesPerPage = 6;
 
   // Function to handle image navigation in modal
-  const handleImageNavigation = (direction: "prev" | "next") => {
-    if (!projectData || selectedImageIndex === null) return;
+  const handleImageNavigation = useCallback(
+    (direction: "prev" | "next") => {
+      if (!projectData || selectedImageIndex === null) return;
 
-    const totalImages = projectData.property_gallery_images.length;
+      const totalImages = projectData.property_gallery_images.length;
 
-    if (direction === "prev") {
-      setSelectedImageIndex((prevIndex) => {
-        if (prevIndex === null) return 0;
-        return prevIndex === 0 ? totalImages - 1 : prevIndex - 1;
-      });
-    } else {
-      setSelectedImageIndex((prevIndex) => {
-        if (prevIndex === null) return 0;
-        return prevIndex === totalImages - 1 ? 0 : prevIndex + 1;
-      });
-    }
-  };
+      if (direction === "prev") {
+        setSelectedImageIndex((prevIndex) => {
+          if (prevIndex === null) return 0;
+          return prevIndex === 0 ? totalImages - 1 : prevIndex - 1;
+        });
+      } else {
+        setSelectedImageIndex((prevIndex) => {
+          if (prevIndex === null) return 0;
+          return prevIndex === totalImages - 1 ? 0 : prevIndex + 1;
+        });
+      }
+    },
+    [projectData, selectedImageIndex]
+  );
 
   // Function to handle keyboard navigation
   useEffect(() => {
@@ -116,7 +119,7 @@ export default function ProjectDetails() {
 
     window.addEventListener("keydown", handleKeyPress);
     return () => window.removeEventListener("keydown", handleKeyPress);
-  }, [selectedImageIndex, projectData]); // Add dependencies to ensure the latest state is used
+  }, [selectedImageIndex, handleImageNavigation]);
 
   useEffect(() => {
     const fetchProjectData = async () => {

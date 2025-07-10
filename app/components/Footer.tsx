@@ -6,11 +6,11 @@ import Image from "next/image";
 const Footer = () => {
   return (
     <footer className="bg-black text-white">
-      <div className="max-w-[90%] mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
+      <div className="max-w-[90%] mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6 md:py-8 lg:py-12">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
           {/* Company Info */}
           <div>
-            <ul className="space-y-2 sm:space-y-3">
+            <ul className="space-y-1 sm:space-y-2 md:space-y-3">
               <li>
                 <Link
                   href="#"
@@ -40,17 +40,17 @@ const Footer = () => {
 
           {/* Contact Information */}
           <div>
-            <h3 className="text-xs sm:text-sm font-semibold uppercase tracking-wider mb-4">
+            <h3 className="text-xs sm:text-sm font-semibold uppercase tracking-wider mb-2 sm:mb-3 md:mb-4">
               Get in touch
             </h3>
-            <ul className="space-y-3">
+            <ul className="space-y-2 sm:space-y-3">
               <li>
                 <Link
                   href="#"
                   className="text-gray-300 hover:text-white text-sm sm:text-base transition-colors flex items-center gap-2"
                 >
                   <svg
-                    className="h-5 w-5"
+                    className="h-4 w-4 sm:h-5 sm:w-5"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -71,7 +71,7 @@ const Footer = () => {
                   className="text-gray-300 hover:text-white text-sm sm:text-base transition-colors flex items-center gap-2"
                 >
                   <svg
-                    className="h-5 w-5"
+                    className="h-4 w-4 sm:h-5 sm:w-5"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -92,7 +92,7 @@ const Footer = () => {
                   className="text-gray-300 hover:text-white text-sm sm:text-base transition-colors flex items-center gap-2"
                 >
                   <svg
-                    className="h-5 w-5"
+                    className="h-4 w-4 sm:h-5 sm:w-5"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -118,17 +118,17 @@ const Footer = () => {
 
           {/* Social Media */}
           <div>
-            <h3 className="text-xs sm:text-sm font-semibold uppercase tracking-wider mb-4">
+            <h3 className="text-xs sm:text-sm font-semibold uppercase tracking-wider mb-2 sm:mb-3 md:mb-4">
               Follow Us
             </h3>
-            <div className="flex space-x-4">
+            <div className="flex space-x-3 sm:space-x-4">
               <a
                 href="#"
                 className="text-gray-400 hover:text-white transition-colors p-1"
               >
                 <span className="sr-only">Facebook</span>
                 <svg
-                  className="h-6 w-6"
+                  className="h-5 w-5 sm:h-6 sm:w-6"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                 >
@@ -144,7 +144,7 @@ const Footer = () => {
               >
                 <span className="sr-only">Instagram</span>
                 <svg
-                  className="h-6 w-6"
+                  className="h-5 w-5 sm:h-6 sm:w-6"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                 >
@@ -160,7 +160,7 @@ const Footer = () => {
               >
                 <span className="sr-only">Google</span>
                 <svg
-                  className="h-6 w-6"
+                  className="h-5 w-5 sm:h-6 sm:w-6"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                 >
@@ -171,19 +171,19 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="mt-8 sm:mt-12 border-t border-gray-800 pt-6 sm:pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <div className="mb-4 md:mb-0">
+        <div className="mt-4 sm:mt-6 md:mt-8 lg:mt-12 border-t border-gray-800 pt-3 sm:pt-4 md:pt-6 lg:pt-8 flex flex-col md:flex-row justify-between items-center gap-3 sm:gap-4">
+          <div className="mb-2 md:mb-0">
             <Link href="/" className="flex items-center">
               <Image
                 src="/images/application-icons/logo.svg"
                 alt="SHIRO"
                 width={140}
                 height={50}
-                className="h-8 sm:h-10 w-auto filter invert"
+                className="h-6 sm:h-8 md:h-10 w-auto filter invert"
               />
             </Link>
           </div>
-          <p className="text-sm sm:text-base text-gray-400 text-center md:text-left">
+          <p className="text-xs sm:text-sm md:text-base text-gray-400 text-center md:text-left">
             Copyright 2025.com. All rights reserved.
           </p>
         </div>

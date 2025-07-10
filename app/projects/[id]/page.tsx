@@ -318,7 +318,7 @@ export default function ProjectDetails() {
                   {projectData.property_details.map((detail, index) => (
                     <div
                       key={index}
-                      className="flex flex-col items-center justify-center text-center p-2 bg-gray-50 rounded-lg h-20 w-full"
+                      className="flex flex-col items-center justify-center text-center p-2 rounded-lg h-20 w-full"
                     >
                       <div className="w-6 h-6 mb-1">
                         <Image

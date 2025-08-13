@@ -6,8 +6,6 @@ const nextConfig: NextConfig = {
     // Improve scroll performance
     optimizePackageImports: ["react", "react-dom"],
   },
-  // Improve performance
-  swcMinify: true,
   // Prevent automatic reloading
   onDemandEntries: {
     // Period (in ms) where the server will keep pages in the buffer

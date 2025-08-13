@@ -1,10 +1,13 @@
 import { useEffect, useCallback } from "react";
 
 export const useScrollOptimization = () => {
-  const preventOverscroll = useCallback((e: TouchEvent) => {
+  const preventOverscroll = useCallback((e: Event) => {
+    // Cast to TouchEvent for touch handling
+    const touchEvent = e as TouchEvent;
+
     // Prevent overscroll bounce on mobile
-    if (e.touches.length === 1) {
-      const touch = e.touches[0];
+    if (touchEvent.touches.length === 1) {
+      const touch = touchEvent.touches[0];
       const element = e.target as HTMLElement;
 
       // Check if we're at the top or bottom of scrollable content

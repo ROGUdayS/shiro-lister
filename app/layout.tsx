@@ -17,14 +17,23 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "SHIRO Real Estate",
   description: "Premium real estate development projects by SHIRO",
+  other: {
+    // Prevent mobile browser refresh gestures
+    "mobile-web-app-capable": "yes",
+    "apple-mobile-web-app-capable": "yes",
+    // Prevent pull-to-refresh
+    "viewport-fit": "cover",
+  },
 };
 
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  maximumScale: 1,
-  userScalable: false,
+  maximumScale: 5,
+  userScalable: true,
   viewportFit: "cover",
+  // Prevent mobile browser address bar from hiding/showing
+  interactiveWidget: "resizes-content",
 };
 
 export default function RootLayout({

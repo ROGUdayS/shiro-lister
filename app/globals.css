@@ -26,6 +26,67 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+  /* Prevent overscroll bounce */
+  overscroll-behavior: none;
+  /* Improve touch scrolling */
+  -webkit-overflow-scrolling: touch;
+  /* Prevent pull-to-refresh on mobile */
+  overscroll-behavior-y: none;
+  /* Improve scroll performance */
+  will-change: scroll-position;
+  /* Prevent mobile browser address bar issues */
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+}
+
+/* Additional scroll performance optimizations */
+* {
+  /* Improve scroll performance */
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  /* Prevent text selection during scroll */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Allow text selection in specific areas */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+span,
+div {
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+}
+
+/* Mobile-specific scroll optimizations */
+@media (max-width: 768px) {
+  html,
+  body {
+    /* Prevent overscroll bounce on iOS */
+    overscroll-behavior: none;
+    overscroll-behavior-y: none;
+    /* Improve touch scrolling */
+    -webkit-overflow-scrolling: touch;
+    /* Prevent pull-to-refresh */
+    overscroll-behavior-y: none;
+  }
+
+  /* Optimize sections for mobile scrolling */
+  section {
+    overscroll-behavior: none;
+    overscroll-behavior-y: none;
+    /* Improve scroll performance */
+    will-change: auto;
+  }
 }
 
 h2 {
@@ -213,6 +274,12 @@ h2 {
 /* Smooth scrolling */
 html {
   scroll-behavior: smooth;
+  /* Prevent overscroll bounce on mobile */
+  overscroll-behavior: none;
+  /* Improve scroll performance */
+  -webkit-overflow-scrolling: touch;
+  /* Prevent pull-to-refresh */
+  overscroll-behavior-y: none;
 }
 
 /* Remove focus outlines */

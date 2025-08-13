@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import Navbar from "./components/Navbar";
+import { useScrollOptimization } from "../lib/hooks/useScrollOptimization";
 
 interface ProjectData {
   project_id: number;
@@ -42,6 +43,9 @@ export default function Home() {
   const [currentX, setCurrentX] = useState(0);
   const carouselRef = useRef<HTMLDivElement>(null);
 
+  // Use scroll optimization hook
+  useScrollOptimization();
+
   useEffect(() => {
     const fetchProjects = async () => {
       try {
@@ -60,18 +64,34 @@ export default function Home() {
 
   // Touch event handlers for mobile swipe
   const handleTouchStart = (e: React.TouchEvent) => {
+    // Only handle touch events if we're on the carousel element
+    if (!carouselRef.current?.contains(e.target as Node)) return;
+
     setIsDragging(true);
     setStartX(e.touches[0].clientX);
     setCurrentX(e.touches[0].clientX);
+
+    // Prevent default to avoid scroll interference
+    e.preventDefault();
   };
 
   const handleTouchMove = (e: React.TouchEvent) => {
     if (!isDragging) return;
+
+    // Only handle if we're on the carousel
+    if (!carouselRef.current?.contains(e.target as Node)) return;
+
     setCurrentX(e.touches[0].clientX);
+
+    // Prevent default to avoid scroll interference
+    e.preventDefault();
   };
 
-  const handleTouchEnd = () => {
+  const handleTouchEnd = (e: React.TouchEvent) => {
     if (!isDragging) return;
+
+    // Only handle if we're on the carousel
+    if (!carouselRef.current?.contains(e.target as Node)) return;
 
     const diff = startX - currentX;
     const threshold = 50; // Minimum swipe distance
@@ -89,6 +109,9 @@ export default function Home() {
     setIsDragging(false);
     setStartX(0);
     setCurrentX(0);
+
+    // Prevent default to avoid scroll interference
+    e.preventDefault();
   };
 
   // Mouse event handlers for desktop drag
@@ -149,11 +172,17 @@ export default function Home() {
   };
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div
+      className="flex flex-col min-h-screen"
+      style={{ overscrollBehavior: "none" }}
+    >
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative h-screen w-full">
+      <section
+        className="relative h-screen w-full"
+        style={{ overscrollBehavior: "none" }}
+      >
         <div className="absolute inset-0 bg-red-100">
           <Image
             src="/images/landing-page-images/cover-image.webp"
@@ -207,7 +236,11 @@ export default function Home() {
       </section>
 
       {/* Overall Development Section */}
-      <section id="development" className="py-12 sm:py-16 bg-white">
+      <section
+        id="development"
+        className="py-12 sm:py-16 bg-white"
+        style={{ overscrollBehavior: "none" }}
+      >
         <div className="max-w-[90%] mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8 sm:mb-12">
             Overall development
@@ -224,7 +257,11 @@ export default function Home() {
       </section>
 
       {/* For Sale Section */}
-      <section id="projects" className="py-12 sm:py-16 bg-gray-50">
+      <section
+        id="projects"
+        className="py-12 sm:py-16 bg-gray-50"
+        style={{ overscrollBehavior: "none" }}
+      >
         <div className="max-w-[90%] mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-4">
             For Sale
@@ -319,6 +356,10 @@ export default function Home() {
                 <div
                   ref={carouselRef}
                   className="relative overflow-hidden rounded-xl"
+                  style={{
+                    overscrollBehavior: "none",
+                    touchAction: "pan-y pinch-zoom",
+                  }}
                   onTouchStart={handleTouchStart}
                   onTouchMove={handleTouchMove}
                   onTouchEnd={handleTouchEnd}
@@ -415,7 +456,11 @@ export default function Home() {
       </section>
 
       {/* Bank Approval Section */}
-      <section id="bank-approval" className="py-8 sm:py-10 lg:py-12 bg-white">
+      <section
+        id="bank-approval"
+        className="py-8 sm:py-10 lg:py-12 bg-white"
+        style={{ overscrollBehavior: "none" }}
+      >
         <div className="max-w-[90%] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-6 sm:mb-8 lg:mb-10">
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-amber-900 mb-4">
@@ -453,7 +498,11 @@ export default function Home() {
       </section>
 
       {/* Mission & Vision Section */}
-      <section id="about" className="py-12 sm:py-16 bg-gray-50">
+      <section
+        id="about"
+        className="py-12 sm:py-16 bg-gray-50"
+        style={{ overscrollBehavior: "none" }}
+      >
         <div className="max-w-[90%] mx-auto px-4 sm:px-6 lg:px-8">
           {/* Mission */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 items-center mb-16 sm:mb-20">

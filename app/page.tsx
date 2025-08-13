@@ -60,6 +60,7 @@ export default function Home() {
 
   // Touch event handlers for mobile swipe
   const handleTouchStart = (e: React.TouchEvent) => {
+    e.preventDefault();
     setIsDragging(true);
     setStartX(e.touches[0].clientX);
     setCurrentX(e.touches[0].clientX);
@@ -67,11 +68,13 @@ export default function Home() {
 
   const handleTouchMove = (e: React.TouchEvent) => {
     if (!isDragging) return;
+    e.preventDefault();
     setCurrentX(e.touches[0].clientX);
   };
 
-  const handleTouchEnd = () => {
+  const handleTouchEnd = (e: React.TouchEvent) => {
     if (!isDragging) return;
+    e.preventDefault();
 
     const diff = startX - currentX;
     const threshold = 50; // Minimum swipe distance
@@ -93,6 +96,7 @@ export default function Home() {
 
   // Mouse event handlers for desktop drag
   const handleMouseDown = (e: React.MouseEvent) => {
+    e.preventDefault();
     setIsDragging(true);
     setStartX(e.clientX);
     setCurrentX(e.clientX);
@@ -100,11 +104,13 @@ export default function Home() {
 
   const handleMouseMove = (e: React.MouseEvent) => {
     if (!isDragging) return;
+    e.preventDefault();
     setCurrentX(e.clientX);
   };
 
-  const handleMouseUp = () => {
+  const handleMouseUp = (e: React.MouseEvent) => {
     if (!isDragging) return;
+    e.preventDefault();
 
     const diff = startX - currentX;
     const threshold = 50;

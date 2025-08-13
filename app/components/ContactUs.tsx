@@ -81,7 +81,7 @@ const ContactUs = ({ projectName }: ContactUsProps) => {
             </div>
           )}
 
-          <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
+          <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6 mobile-form-optimized">
             <div>
               <label
                 htmlFor="name"
@@ -96,6 +96,12 @@ const ContactUs = ({ projectName }: ContactUsProps) => {
                 value={formData.name}
                 onChange={handleChange}
                 required
+                autoComplete="name"
+                autoCorrect="off"
+                autoCapitalize="words"
+                spellCheck="false"
+                inputMode="text"
+                enterKeyHint="next"
                 className="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 text-sm sm:text-base text-gray-900 bg-white"
                 placeholder="Enter your name"
               />
@@ -115,6 +121,12 @@ const ContactUs = ({ projectName }: ContactUsProps) => {
                 value={formData.email}
                 onChange={handleChange}
                 required
+                autoComplete="email"
+                autoCorrect="off"
+                autoCapitalize="off"
+                spellCheck="false"
+                inputMode="email"
+                enterKeyHint="next"
                 className="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 text-sm sm:text-base text-gray-900 bg-white"
                 placeholder="Enter your email"
               />
@@ -134,6 +146,13 @@ const ContactUs = ({ projectName }: ContactUsProps) => {
                 value={formData.phone}
                 onChange={handleChange}
                 required
+                autoComplete="tel"
+                autoCorrect="off"
+                autoCapitalize="off"
+                spellCheck="false"
+                inputMode="tel"
+                enterKeyHint="done"
+                pattern="[0-9+\-\s\(\)]*"
                 className="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 text-sm sm:text-base text-gray-900 bg-white"
                 placeholder="Enter your phone number"
               />

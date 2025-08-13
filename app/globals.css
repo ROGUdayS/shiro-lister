@@ -49,6 +49,167 @@ h2 {
   }
 }
 
+/* Mobile input optimizations */
+@media (max-width: 768px) {
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="password"],
+  input[type="search"],
+  input[type="url"],
+  input[type="number"],
+  textarea,
+  select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 0;
+    font-size: 16px !important; /* Prevents zoom on iOS */
+    line-height: 1.2;
+    padding: 12px 16px;
+    min-height: 44px;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: white;
+    border: 1px solid #d1d5db;
+    color: #111827;
+    outline: none;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  }
+
+  input[type="text"]:focus,
+  input[type="email"]:focus,
+  input[type="tel"]:focus,
+  input[type="password"]:focus,
+  input[type="search"]:focus,
+  input[type="url"]:focus,
+  input[type="number"]:focus,
+  textarea:focus,
+  select:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    outline: none;
+  }
+
+  /* Ensure proper touch behavior */
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="password"],
+  input[type="search"],
+  input[type="url"],
+  input[type="number"],
+  textarea,
+  select {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+  }
+
+  /* Fix for iOS input zoom */
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="password"],
+  input[type="search"],
+  input[type="url"],
+  input[type="number"] {
+    font-size: 16px !important;
+  }
+
+  /* Ensure proper input behavior on mobile */
+  input[type="text"]:focus,
+  input[type="email"]:focus,
+  input[type="tel"]:focus,
+  input[type="password"]:focus,
+  input[type="search"]:focus,
+  input[type="url"]:focus,
+  input[type="number"]:focus {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+  }
+
+  /* Mobile form optimization */
+  .mobile-form-optimized {
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+  }
+
+  .mobile-form-optimized input,
+  .mobile-form-optimized textarea {
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+    -webkit-touch-callout: default;
+    -webkit-tap-highlight-color: rgba(59, 130, 246, 0.1);
+  }
+
+  /* Ensure form doesn't interfere with mobile keyboard */
+  .mobile-form-optimized {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Prevent horizontal scrolling on mobile */
+  .mobile-form-optimized input,
+  .mobile-form-optimized textarea {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  /* Additional mobile input optimizations */
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="password"],
+  input[type="search"],
+  input[type="url"],
+  input[type="number"] {
+    /* Ensure proper mobile behavior */
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+
+    /* Prevent unwanted mobile behaviors */
+    -webkit-touch-callout: none;
+    -webkit-user-select: text;
+    -khtml-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+
+    /* Ensure proper focus behavior */
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+  }
+
+  /* Fix for iOS Safari input issues */
+  @supports (-webkit-touch-callout: none) {
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="password"],
+    input[type="search"],
+    input[type="url"],
+    input[type="number"] {
+      font-size: 16px !important;
+      -webkit-appearance: none;
+      border-radius: 0;
+    }
+  }
+
+  /* Ensure form elements are properly sized for mobile */
+  form {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+}
+
 /* Smooth scrolling */
 html {
   scroll-behavior: smooth;
